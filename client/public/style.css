@@ -1,25 +1,25 @@
 .fade-enter {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateX(16px);
     position: absolute;
 }
 
 .fade-enter-active {
     opacity: 1;
-    transform: translateY(0px);
-    transition: opacity 150ms 150ms, transform 150ms 150ms;
+    transform: translateX(0px);
+    transition: opacity 400ms 200ms, transform 200ms 200ms;
 }
 
 .fade-exit {
     opacity: 1;
-    transform: translateY(0px);
+    transform: translateX(0px);
     position: absolute;
 }
 
 .fade-exit-active {
     opacity: 0;
-    transform: translateY(-8px);
-    transition: opacity 150ms, transform 150ms;
+    transform: translateX(-16px);
+    transition: opacity 100ms, transform 200ms;
 }
 
 html {
