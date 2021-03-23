@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..', 'client', 'public'))); // несобранная статика
 app.use(express.static(path.join(__dirname, '..', 'client', 'build'))); // собранная статика
-app.use(express.static(path.join(__dirname, 'public'))); // не знаю пригодится или нет но кто знает
+// app.use(express.static(path.join(__dirname, 'public'))); // не знаю пригодится или нет но кто знает
 
 app.use('/api', apiRouter);
 
