@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 8.17</title>
+</head>
+<script>
+    function check() {
+        if (document.f1.r1[0].checked) {
+            alert("Молодец");
+        } else {
+            alert("Не молодец");
+        }
+    }
+</script>
+<body>
+    <form name="f1">
+        Какой заряд у электрона?<br>
+        <input type="radio" name="r1"> отрицательный<br>
+        <input type="radio" name="r1"> положительный<br>
+        <input type="button" value="Проверить" onclick="check()">
+    </form>
+</body>
+</html>

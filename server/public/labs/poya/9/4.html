@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 9.4</title>
+    <script type="text/javascript">
+        function draw() {
+            var canvas = document.getElementById('canvas');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+
+                ctx.beginPath();
+                ctx.fillStyle = 'darkblue';
+                ctx.strokeStyle = 'black';
+                ctx.ellipse(10, 5, 5, 5, 0, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.fillStyle = 'mediumorchid';
+                ctx.strokeStyle = 'black';
+                ctx.ellipse(40, 20, 10, 10, 0, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.fillStyle = 'turquoise';
+                ctx.strokeStyle = 'black';
+                ctx.ellipse(70, 35, 15, 15, 0, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.fillStyle = 'hotpink';
+                ctx.strokeStyle = 'black';
+                ctx.ellipse(100, 50, 20, 20, 0, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.fillStyle = 'pink';
+                ctx.strokeStyle = 'black';
+                ctx.ellipse(130, 65, 25, 25, 0, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.fillStyle = 'midnightblue';
+                ctx.strokeStyle = 'black';
+                ctx.ellipse(160, 80, 30, 30, 0, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.fillStyle = 'darkorchid';
+                ctx.strokeStyle = 'black';
+                ctx.ellipse(190, 95, 35, 35, 0, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.fillStyle = 'green';
+                ctx.strokeStyle = 'black';
+                ctx.ellipse(210, 105, 40, 40, 0, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.stroke();
+            }
+        }
+    </script>
+    <style type="text/css">
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body onload="draw();">
+    <canvas id="canvas" width="400" height="400"></canvas>
+    <p>Вышло не идеально, но как мог без точных координат и цветов</p>
+</body>
+</html>

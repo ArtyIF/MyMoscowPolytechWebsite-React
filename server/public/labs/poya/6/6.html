@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 6.6</title>
+    <script>
+        function Menu(menuItems) {
+            if (menuItems !== undefined) {
+                this.menuItems = menuItems;
+            } else {
+                this.menuItems = [];
+            }
+
+            this.show = function() {
+                document.writeln("<ul>");
+                this.menuItems.forEach(menuItem => {
+                    menuItem.show();
+                });
+                document.writeln("</ul>");
+            }
+        }
+        function MenuItem(title, url) {
+            this.title = title;
+            this.url = url;
+
+            this.show = function() {
+                document.writeln(`<li><a href="${this.url}">${this.title}</a></li>`);
+            }
+        }
+
+        var itemCount = parseInt(prompt("Введите количество пунктов меню"));
+        var menuItems = [];
+        for (let i = 0; i < itemCount; i++) {
+            menuItems[i] = new MenuItem(prompt(`Введите название пункта меню ${i + 1}`), prompt(`Введите ссылку пункта меню ${i + 1}`));
+        }
+
+        var menu = new Menu(menuItems);
+        menu.show();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 6.3</title>
+    <script>
+        function Tour(people, days, tariff) {
+            this.people = people;
+            this.days = days;
+            this.tariff = tariff;
+
+            this.showProperties = function() {
+                document.writeln(`Людей на туре: ${this.people}<br>`);
+                document.writeln(`Длина тура в днях: ${this.days}<br>`);
+                document.writeln(`Тариф страны: ${this.tariff}<br>`);
+            }
+            this.calculateAndShowPrice = function() {
+                document.writeln(`Цена поездки: ${this.people * this.days * this.tariff}`);
+            }
+        }
+
+        var tour = new Tour(25, 7, 2000);
+        tour.showProperties();
+        tour.calculateAndShowPrice();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

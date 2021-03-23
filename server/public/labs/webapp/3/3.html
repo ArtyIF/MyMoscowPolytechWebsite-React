@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ЛР3 Раздел 3</title>
+    <style>
+        .container {
+            display: flex;
+            background-color: gray;
+            width: 100%;
+            padding: 2px;
+        }
+        
+        .item {
+            color: black;
+            background-color: white;
+            text-align: center;
+            font-size: 32px;
+            padding: 16px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Примеры использования <code>flex-direction</code></h1>
+    <h2><code>row</code></h2>
+    <div class="container" style="flex-direction: row;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2><code>column</code></h2>
+    <div class="container" style="flex-direction: column;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2><code>row-reverse</code></h2>
+    <div class="container" style="flex-direction: row-reverse;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2><code>column-reverse</code></h2>
+    <div class="container" style="flex-direction: column-reverse;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    
+    <h1>Примеры использования <code>justify-content</code></h1>
+    <h2><code>flex-start</code> (<code>flex-direction</code> равен <code>row</code>)</h2>
+    <div class="container" style="justify-content: flex-start; flex-direction: row;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2><code>flex-start</code> (<code>flex-direction</code> равен <code>row-reverse</code>)</h2>
+    <div class="container" style="justify-content: flex-start; flex-direction: row-reverse;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2><code>flex-end</code> (<code>flex-direction</code> равен <code>row</code>)</h2>
+    <div class="container" style="justify-content: flex-end; flex-direction: row;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2><code>flex-end</code> (<code>flex-direction</code> равен <code>row-reverse</code>)</h2>
+    <div class="container" style="justify-content: flex-end; flex-direction: row-reverse;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2><code>start</code> (<code>flex-direction</code> равен <code>row</code>)</h2>
+    <div class="container" style="justify-content: start; flex-direction: row;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2><code>start</code> (<code>flex-direction</code> равен <code>row-reverse</code>)</h2>
+    <div class="container" style="justify-content: start; flex-direction: row-reverse;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2><code>end</code> (<code>flex-direction</code> равен <code>row</code>)</h2>
+    <div class="container" style="justify-content: end; flex-direction: row;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2><code>end</code> (<code>flex-direction</code> равен <code>row-reverse</code>)</h2>
+    <div class="container" style="justify-content: end; flex-direction: row-reverse;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2><code>left</code> (<code>flex-direction</code> равен <code>row</code>)</h2>
+    <div class="container" style="justify-content: left; flex-direction: row;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2><code>left</code> (<code>flex-direction</code> равен <code>column</code>)</h2>
+    <div class="container" style="justify-content: left; flex-direction: column;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2><code>right</code> (<code>flex-direction</code> равен <code>row</code>)</h2>
+    <div class="container" style="justify-content: right; flex-direction: row;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2><code>right</code> (<code>flex-direction</code> равен <code>column</code>)</h2>
+    <div class="container" style="justify-content: right; flex-direction: column;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2><code>center</code></h2>
+    <div class="container" style="justify-content: center;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2><code>space-between</code></h2>
+    <div class="container" style="justify-content: space-between;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2><code>space-around</code></h2>
+    <div class="container" style="justify-content: space-around;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2><code>space-evenly</code></h2>
+    <div class="container" style="justify-content: space-evenly;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    
+    <h1>Примеры использования <code>align-items</code></h1>
+    <h2><code>stretch</code></h2>
+    <div class="container" style="align-items: stretch; height: 128px;">
+        <div class="item">1</div>
+        <div class="item" style="font-size: 16px;">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2><code>flex-start</code></h2>
+    <div class="container" style="align-items: flex-start; height: 128px;">
+        <div class="item">1</div>
+        <div class="item" style="font-size: 16px;">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2><code>flex-end</code></h2>
+    <div class="container" style="align-items: flex-end; height: 128px;">
+        <div class="item">1</div>
+        <div class="item" style="font-size: 16px;">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2><code>center</code></h2>
+    <div class="container" style="align-items: center; height: 128px;">
+        <div class="item">1</div>
+        <div class="item" style="font-size: 16px;">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2><code>baseline</code></h2>
+    <div class="container" style="align-items: baseline; height: 128px;">
+        <div class="item">1</div>
+        <div class="item" style="font-size: 16px;">2</div>
+        <div class="item">3</div>
+    </div>
+
+    <h1>Примеры использования <code>flex-wrap</code></h1>
+    <h2><code>nowrap</code></h2>
+    <div class="container" style="flex-wrap: nowrap;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">10</div>
+        <div class="item">11</div>
+        <div class="item">12</div>
+        <div class="item">13</div>
+        <div class="item">14</div>
+        <div class="item">15</div>
+        <div class="item">16</div>
+        <div class="item">17</div>
+        <div class="item">18</div>
+        <div class="item">19</div>
+        <div class="item">20</div>
+        <div class="item">21</div>
+        <div class="item">22</div>
+        <div class="item">23</div>
+        <div class="item">24</div>
+        <div class="item">25</div>
+        <div class="item">26</div>
+        <div class="item">27</div>
+        <div class="item">28</div>
+        <div class="item">29</div>
+        <div class="item">30</div>
+        <div class="item">31</div>
+        <div class="item">32</div>
+    </div>
+    <h2><code>wrap</code></h2>
+    <div class="container" style="flex-wrap: wrap;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">10</div>
+        <div class="item">11</div>
+        <div class="item">12</div>
+        <div class="item">13</div>
+        <div class="item">14</div>
+        <div class="item">15</div>
+        <div class="item">16</div>
+        <div class="item">17</div>
+        <div class="item">18</div>
+        <div class="item">19</div>
+        <div class="item">20</div>
+        <div class="item">21</div>
+        <div class="item">22</div>
+        <div class="item">23</div>
+        <div class="item">24</div>
+        <div class="item">25</div>
+        <div class="item">26</div>
+        <div class="item">27</div>
+        <div class="item">28</div>
+        <div class="item">29</div>
+        <div class="item">30</div>
+        <div class="item">31</div>
+        <div class="item">32</div>
+    </div>
+    <h2><code>wrap-reverse</code></h2>
+    <div class="container" style="flex-wrap: wrap-reverse;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">10</div>
+        <div class="item">11</div>
+        <div class="item">12</div>
+        <div class="item">13</div>
+        <div class="item">14</div>
+        <div class="item">15</div>
+        <div class="item">16</div>
+        <div class="item">17</div>
+        <div class="item">18</div>
+        <div class="item">19</div>
+        <div class="item">20</div>
+        <div class="item">21</div>
+        <div class="item">22</div>
+        <div class="item">23</div>
+        <div class="item">24</div>
+        <div class="item">25</div>
+        <div class="item">26</div>
+        <div class="item">27</div>
+        <div class="item">28</div>
+        <div class="item">29</div>
+        <div class="item">30</div>
+        <div class="item">31</div>
+        <div class="item">32</div>
+    </div>
+
+    <h1>Примеры использования <code>align-content</code></h1>
+    <h2><code>stretch</code></h2>
+    <div class="container" style="align-content: stretch; flex-wrap: wrap; height: 256px;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">10</div>
+        <div class="item">11</div>
+        <div class="item">12</div>
+        <div class="item">13</div>
+        <div class="item">14</div>
+        <div class="item">15</div>
+        <div class="item">16</div>
+        <div class="item">17</div>
+        <div class="item">18</div>
+        <div class="item">19</div>
+        <div class="item">20</div>
+        <div class="item">21</div>
+        <div class="item">22</div>
+        <div class="item">23</div>
+        <div class="item">24</div>
+        <div class="item">25</div>
+        <div class="item">26</div>
+        <div class="item">27</div>
+        <div class="item">28</div>
+        <div class="item">29</div>
+        <div class="item">30</div>
+        <div class="item">31</div>
+        <div class="item">32</div>
+    </div>
+    <h2><code>flex-start</code></h2>
+    <div class="container" style="align-content: flex-start; flex-wrap: wrap; height: 256px;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">10</div>
+        <div class="item">11</div>
+        <div class="item">12</div>
+        <div class="item">13</div>
+        <div class="item">14</div>
+        <div class="item">15</div>
+        <div class="item">16</div>
+        <div class="item">17</div>
+        <div class="item">18</div>
+        <div class="item">19</div>
+        <div class="item">20</div>
+        <div class="item">21</div>
+        <div class="item">22</div>
+        <div class="item">23</div>
+        <div class="item">24</div>
+        <div class="item">25</div>
+        <div class="item">26</div>
+        <div class="item">27</div>
+        <div class="item">28</div>
+        <div class="item">29</div>
+        <div class="item">30</div>
+        <div class="item">31</div>
+        <div class="item">32</div>
+    </div>
+    <h2><code>flex-end</code></h2>
+    <div class="container" style="align-content: flex-end; flex-wrap: wrap; height: 256px;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">10</div>
+        <div class="item">11</div>
+        <div class="item">12</div>
+        <div class="item">13</div>
+        <div class="item">14</div>
+        <div class="item">15</div>
+        <div class="item">16</div>
+        <div class="item">17</div>
+        <div class="item">18</div>
+        <div class="item">19</div>
+        <div class="item">20</div>
+        <div class="item">21</div>
+        <div class="item">22</div>
+        <div class="item">23</div>
+        <div class="item">24</div>
+        <div class="item">25</div>
+        <div class="item">26</div>
+        <div class="item">27</div>
+        <div class="item">28</div>
+        <div class="item">29</div>
+        <div class="item">30</div>
+        <div class="item">31</div>
+        <div class="item">32</div>
+    </div>
+    <h2><code>center</code></h2>
+    <div class="container" style="align-content: center; flex-wrap: wrap; height: 256px;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">10</div>
+        <div class="item">11</div>
+        <div class="item">12</div>
+        <div class="item">13</div>
+        <div class="item">14</div>
+        <div class="item">15</div>
+        <div class="item">16</div>
+        <div class="item">17</div>
+        <div class="item">18</div>
+        <div class="item">19</div>
+        <div class="item">20</div>
+        <div class="item">21</div>
+        <div class="item">22</div>
+        <div class="item">23</div>
+        <div class="item">24</div>
+        <div class="item">25</div>
+        <div class="item">26</div>
+        <div class="item">27</div>
+        <div class="item">28</div>
+        <div class="item">29</div>
+        <div class="item">30</div>
+        <div class="item">31</div>
+        <div class="item">32</div>
+    </div>
+    <h2><code>space-between</code></h2>
+    <div class="container" style="align-content: space-between; flex-wrap: wrap; height: 256px;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">10</div>
+        <div class="item">11</div>
+        <div class="item">12</div>
+        <div class="item">13</div>
+        <div class="item">14</div>
+        <div class="item">15</div>
+        <div class="item">16</div>
+        <div class="item">17</div>
+        <div class="item">18</div>
+        <div class="item">19</div>
+        <div class="item">20</div>
+        <div class="item">21</div>
+        <div class="item">22</div>
+        <div class="item">23</div>
+        <div class="item">24</div>
+        <div class="item">25</div>
+        <div class="item">26</div>
+        <div class="item">27</div>
+        <div class="item">28</div>
+        <div class="item">29</div>
+        <div class="item">30</div>
+        <div class="item">31</div>
+        <div class="item">32</div>
+    </div>
+    <h2><code>space-around</code></h2>
+    <div class="container" style="align-content: space-around; flex-wrap: wrap; height: 256px;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">10</div>
+        <div class="item">11</div>
+        <div class="item">12</div>
+        <div class="item">13</div>
+        <div class="item">14</div>
+        <div class="item">15</div>
+        <div class="item">16</div>
+        <div class="item">17</div>
+        <div class="item">18</div>
+        <div class="item">19</div>
+        <div class="item">20</div>
+        <div class="item">21</div>
+        <div class="item">22</div>
+        <div class="item">23</div>
+        <div class="item">24</div>
+        <div class="item">25</div>
+        <div class="item">26</div>
+        <div class="item">27</div>
+        <div class="item">28</div>
+        <div class="item">29</div>
+        <div class="item">30</div>
+        <div class="item">31</div>
+        <div class="item">32</div>
+    </div>
+    <h2><code>space-evenly</code></h2>
+    <div class="container" style="align-content: space-evenly; flex-wrap: wrap; height: 256px;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">10</div>
+        <div class="item">11</div>
+        <div class="item">12</div>
+        <div class="item">13</div>
+        <div class="item">14</div>
+        <div class="item">15</div>
+        <div class="item">16</div>
+        <div class="item">17</div>
+        <div class="item">18</div>
+        <div class="item">19</div>
+        <div class="item">20</div>
+        <div class="item">21</div>
+        <div class="item">22</div>
+        <div class="item">23</div>
+        <div class="item">24</div>
+        <div class="item">25</div>
+        <div class="item">26</div>
+        <div class="item">27</div>
+        <div class="item">28</div>
+        <div class="item">29</div>
+        <div class="item">30</div>
+        <div class="item">31</div>
+        <div class="item">32</div>
+    </div>
+
+    <h1>Примеры использования <code>flex-basis</code></h1>
+    <h2>Равно <code>auto</code> у элемента 2</h2>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item" style="flex-basis: auto;">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2>Равно <code>64px</code> у элемента 2</h2>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item" style="flex-basis: 64px;">2</div>
+        <div class="item">3</div>
+    </div>
+
+    <h1>Примеры использования <code>flex-grow</code></h1>
+    <h2>Равно <code>0</code> у элемента 2</h2>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item" style="flex-grow: 0;">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2>Равно <code>0.5</code> у элемента 2</h2>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item" style="flex-grow: 0.5;">2</div>
+        <div class="item">3</div>
+    </div>
+    <h2>Равно <code>1</code> у элемента 2</h2>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item" style="flex-grow: 1;">2</div>
+        <div class="item">3</div>
+    </div>
+
+    <h1>Примеры использования <code>flex-shrink</code></h1>
+    <h2>Равно <code>0</code> у всех элементов, <code>flex-basis</code> у всех элементов равен <code>300px</code>, ширина контейнера равна <code>600px</code></h2>
+    <div class="container" style="width: 600px;">
+        <div class="item" style="flex-basis: 300px; flex-shrink: 0;">1</div>
+        <div class="item" style="flex-basis: 300px; flex-shrink: 0;">2</div>
+        <div class="item" style="flex-basis: 300px; flex-shrink: 0;">3</div>
+    </div>
+    <h2>Равно <code>1</code> у всех элементов, <code>flex-basis</code> у всех элементов равен <code>300px</code>, ширина контейнера равна <code>600px</code></h2>
+    <div class="container" style="width: 600px;">
+        <div class="item" style="flex-basis: 300px; flex-shrink: 1;">1</div>
+        <div class="item" style="flex-basis: 300px; flex-shrink: 1;">2</div>
+        <div class="item" style="flex-basis: 300px; flex-shrink: 1;">3</div>
+    </div>
+    <h2>Равно <code>1</code> у элементов 1 и 3, равно <code>2</code> у элемента 2, <code>flex-basis</code> у всех элементов равен <code>300px</code>, ширина контейнера равна <code>600px</code></h2>
+    <div class="container" style="width: 600px;">
+        <div class="item" style="flex-basis: 300px; flex-shrink: 1;">1</div>
+        <div class="item" style="flex-basis: 300px; flex-shrink: 2;">2</div>
+        <div class="item" style="flex-basis: 300px; flex-shrink: 1;">3</div>
+    </div>
+</body>
+</html>

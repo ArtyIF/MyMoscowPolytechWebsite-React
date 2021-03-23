@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 8.20</title>
+</head>
+<script>
+    function check() {
+        document.f1.s1[0].text = document.f1.s1[0].value = "Ростов-на-Дону";
+    }
+</script>
+<body>
+    <form name="f1">
+        <select name="s1">
+            <option value="Ростов Дон">Ростов-Дон</option>
+            <option value="Владимир">Владимир</option>
+            <option value="Москва">Москва</option>
+        </select>
+        <input type="button" onClick="check()" value="Исправить">
+    </form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 7.2</title>
+    <script>
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+        
+        if (minutes < 10)
+        {
+            minutes = "0" + minutes;
+        }
+        if (seconds < 10)
+        {
+            seconds = "0" + seconds;
+        }
+
+        document.write("Текущее время: " + hours + ":" + minutes + ":" + seconds);
+    </script>
+</head>
+<body>
+</body>
+</html>

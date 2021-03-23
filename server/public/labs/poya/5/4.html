@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 5.4</title>
+    <script>
+        var weekdays = ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"];
+        function findValue(theValue){
+            for (var i = 0; i<weekdays.length;i++){
+                if(weekdays[i] == theValue)
+                    break; // если нашли - выход из цикла 
+            }
+            if (i<weekdays.length) // если не нашли, то i=weekdays.length
+                return i; //если нашли - возвращаем индекс
+            else  
+                return -1; // если не нашли - возвращаем -1
+        }
+
+        var val = findValue(prompt("Введите день недели строчными буквами"));
+        if (val == -1) {
+            document.write("День недели не найден");
+        } else {
+            document.write(val);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ЛР4 Раздел 5</title>
+</head>
+<body>
+    <script>
+        "use strict";
+
+        function wrapWriteInTryCatch(func) {
+            try {
+                document.write(func() + "<br>");
+            } catch {
+                document.write("не найдено<br>");
+            }
+        }
+
+        var globalVar = "Глобальная переменная var";
+        var globalLet = "Глобальная переменная let";
+
+        function func() {
+            var funcVar = "Переменная var в функции";
+            var funcLet = "Переменная let в функции";
+
+            while (true) {
+                var blockVar = "Переменная var в блоке";
+                let blockLet = "Переменная let в блоке";
+
+                document.write("<h3>В блоке:</h3>");
+                wrapWriteInTryCatch(() => globalVar);
+                wrapWriteInTryCatch(() => globalLet);
+                wrapWriteInTryCatch(() => funcVar);
+                wrapWriteInTryCatch(() => funcLet);
+                wrapWriteInTryCatch(() => blockVar);
+                wrapWriteInTryCatch(() => blockLet);
+                break;
+            }
+
+            document.write("<h3>В функции:</h3>");
+            wrapWriteInTryCatch(() => globalVar);
+            wrapWriteInTryCatch(() => globalLet);
+            wrapWriteInTryCatch(() => funcVar);
+            wrapWriteInTryCatch(() => funcLet);
+            wrapWriteInTryCatch(() => blockVar);
+            wrapWriteInTryCatch(() => blockLet);
+        }
+        func();
+
+        document.write("<h3>Вне функции:</h3>");
+        wrapWriteInTryCatch(() => globalVar);
+        wrapWriteInTryCatch(() => globalLet);
+        wrapWriteInTryCatch(() => funcVar);
+        wrapWriteInTryCatch(() => funcLet);
+        wrapWriteInTryCatch(() => blockVar);
+        wrapWriteInTryCatch(() => blockLet);
+        
+        document.write("<h3>Пример с const:</h3>");
+        const constStr = "Эту строку не изменить";
+        try {
+            constStr = "Или изменить?";
+        } catch {}
+        document.write(constStr + "<br>");
+        const constDict = {aboutDictItself: "Сам словарь не изменить", aboutFieldInDict: "Поле в словаре не изменить"};
+        try {
+            constDict.aboutFieldInDict = "Хотя поле в словаре можно изменить";
+        } catch {}
+        try {
+            constDict = {bigChanges: "А может, можно и сам словарь?"};
+        } catch {}
+        document.write(JSON.stringify(constDict) + "<br>");
+
+        document.write("<h3>Пример с обратными кавычками:</h3>");
+        document.write(`globalVar + globalLet равно ${globalVar + globalLet}`);
+    </script>
+</body>
+</html>

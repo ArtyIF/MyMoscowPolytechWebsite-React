@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 8.20</title>
+</head>
+<script>
+    function check() {
+        document.f1.s1[0].text = document.f1.s1[0].value = "Ростов-на-Дону";
+    }
+</script>
+<body>
+    <form>Набор канцелярских товаров:
+        <select onChange="document.getElementById('selected').innerText='';for(i=0;i<6;i++)if(form.elements[0].options[i].selected==true)document.getElementById('selected').innerText=document.getElementById('selected').innerText+i;" multiple>
+            <option>Карандаши</option>
+            <option>Авторучки</option>
+            <option>Линейки</option>
+            <option>Тетради</option>
+            <option>Стерки</option>
+            <option>Кнопки</option>
+        </select>
+        Выбраны позиции: <span id="selected"></span>
+    </form>
+</body>
+</html>

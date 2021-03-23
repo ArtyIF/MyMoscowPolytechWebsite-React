@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 6.5</title>
+    <script>
+        var employee = new Object();
+        employee.name = "Пупкин Василий Дмитриевич";
+        employee.dept = "Отдел кадров";
+        employee.phone = "88001234567";
+        employee.salary = 50000;
+        employee.showData = function() {
+            document.writeln(`ФИО: ${employee.name}<br>`);
+            document.writeln(`Отдел: ${employee.dept}<br>`);
+            document.writeln(`Телефон: ${employee.phone}<br>`);
+            document.writeln(`Зарплата: ${employee.salary} руб/месяц<br>`);
+        }
+        employee.showData();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

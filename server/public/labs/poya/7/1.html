@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 7.1</title>
+    <script>
+        function submit() {
+            let part1RegExp = /^(495|632)$/;
+            let part2RegExp = /^(\d{3})$/;
+            let part3RegExp = /^(\d{4})$/;
+            if (part1RegExp.test(document.getElementById("part1").value) &&
+            part2RegExp.test(document.getElementById("part2").value) &&
+            part3RegExp.test(document.getElementById("part3").value)) {
+                alert("Спасибо за заказ!");
+            } else {
+                alert("Неправильный формат номера телефона.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>ВВВ Компания Спасибо за заказ! Пожалуйста, введите номер телефона:</p>
+    <p>+7 (<input id="part1" placeholder="495 или 632">) <input id="part2" placeholder="xxx">-<input id="part3" placeholder="xxxx"> <button onclick="submit()">Отправить</button></p>
+</body>
+</html>

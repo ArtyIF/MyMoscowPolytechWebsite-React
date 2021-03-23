@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 5.15</title>
+    <script>
+        var mat = [
+            [-10,  -9,  -8,  -7,  -6],
+            [ -5,  -4,  -3,  -2,  -1],
+            [  0,   1,   2,   3,   4],
+            [  5,   6,   7,   8,   9],
+            [ 10,  11,  12,  13,  14]
+        ]
+        for (let y = 0; y < mat.length; y++) {
+            for (let x = 0; x < mat.length; x++) {
+                if (mat[y][x] >= -5 && mat[y][x] <= 7) {
+                    document.write(mat[y][x] + "<br>");
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

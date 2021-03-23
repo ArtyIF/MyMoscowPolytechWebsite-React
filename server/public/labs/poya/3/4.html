@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 3.4</title>
+    <script>
+        // шахматы
+        var result = "<table border=\"1\">";
+        for (var y = 0; y < 9; y++) {
+            result += "<tr>";
+            for (var x = 0; x < 9; x++) {
+                result += "<td bgcolor=\"" + (((y * 9) + x) % 2 == 0 ? "black" : "white") + "\"></td>";
+            }
+            result += "</tr>";
+        }
+        result += "</table><br/>";
+        document.write(result);
+
+        // таблица
+        result = "<table border=\"1\">";
+        for (var y = 1; y <= 10; y++) {
+            result += "<tr>";
+            for (var x = 1; x <= 10; x++) {
+                result += "<td>" + (x * y) + "</td>";
+            }
+            result += "</tr>";
+        }
+        result += "</table>";
+        document.write(result);
+    </script>
+</head>
+<body>
+    <table border="1" id="taskTable">
+
+    </table>
+</body>
+</html>

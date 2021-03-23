@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 3.7</title>
+    <script>
+        var counter = prompt("Введите число");
+        var factorial = 1;
+        document.write("Факториал числа: " + counter + "! = ");
+        do {
+             if (counter == 0) {
+                //factorial = 1; // это убрать вообще
+                break;
+             }
+             //factorial = factorial / counter;
+             factorial *= counter;
+             //counter = counter + 1;
+             counter -= 1;
+        }
+        while (counter > 0);
+        document.write(factorial);
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 8.4</title>
+</head>
+<body>
+    <img src="https://media.istockphoto.com/photos/enough-nonsense-picture-id173815235">
+    <img src="https://image.shutterstock.com/image-photo/man-dressed-pirate-cd-his-600w-171607586.jpg">
+    <img src="https://media.istockphoto.com/photos/businessman-in-tune-with-business-picture-id521113779">
+    <script type="text/javascript">
+        var allImg = document.getElementsByTagName("img"); // получаем массив изображений
+        for (var i = 0; i < allImg.length; i++) {
+            allImg[i].width = 500; // меняем свойство width
+            allImg[i].height = 100; // меняем свойство height
+            allImg[i].border = "5"; // меняем border
+        }
+    </script>
+</body>
+
+</html>

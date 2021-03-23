@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 6.2</title>
+    <script>
+        function Employee(name, dept, phone, salary) {
+            this.name = name; // ФИО
+            this.dept = dept; // отдел
+            this.phone = phone; // телефон
+            this.salary = salary; // зарплата/месяц
+        }
+
+        var vasiliyPupkin = new Employee("Пупкин Василий Дмитриевич", "Отдел кадров", "88001234567", 50000);
+        Employee.prototype.address = "улица Чаянова, дом 10, кв. 38"; // адрес (сгенерирован https://fakeaddressgenerator.com/World_more1/get_ru_address?ip=Moskva этим сайтом)
+    </script>
+</head>
+<body>
+    Перейдите в режим просмотра кода (&quot;Показать шапку&quot; -&gt; &quot;Показать код&quot;), чтобы посмотреть код страницы
+</body>
+</html>

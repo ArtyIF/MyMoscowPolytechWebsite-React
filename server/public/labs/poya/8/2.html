@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 8.2</title>
+    <script>
+        window.onload = function() {
+            document.getElementById("donuts").value = 0;
+            document.getElementById("pickupminutes").value = 0;
+            document.getElementById("poditog").value = 0;
+            document.getElementById("tax").value = 0;
+            document.getElementById("itog").value = 0;
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Имя:</td>
+            <td><input type="text" id="name"></td>
+        </tr>
+        <tr>
+            <td>Кол-во пончиков:</td>
+            <td><input type="number" id="donuts"></td>
+        </tr>
+        <tr>
+            <td>Минут:</td>
+            <td><input type="number" id="pickupminutes"></td>
+        </tr>
+        <tr>
+            <td>Подитог:</td>
+            <td><input type="number" id="poditog"></td>
+        </tr>
+        <tr>
+            <td>Налог:</td>
+            <td><input type="number" id="tax"></td>
+        </tr>
+        <tr>
+            <td>Итог:</td>
+            <td><input type="number" id="itog"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="button" value="Заказать" id="order"></td>
+        </tr>
+    </table>
+</body>
+</html>

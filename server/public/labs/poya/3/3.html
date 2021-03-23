@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 3.3</title>
+    <script>
+        var tagNum = parseInt(prompt("Введите число от 1 до 3 включительно"));
+        if (tagNum < 1 || tagNum > 3) {
+            alert("Число не подходит");
+            exit;
+        }
+        var tagAmt = parseInt(prompt("Введите количество"));
+
+        var result = "";
+        for (var i = 0; i < tagAmt; i++) {
+            switch (tagNum) {
+                case 1:
+                    result += "<input type=\"text\">";
+                    break;
+                case 2:
+                    result += "<input type=\"button\">";
+                    break;
+                case 3:
+                    result += "<input type=\"radio\">";
+                    break;
+                default:
+                    result = "Что-то пошло не так";
+                    exit;
+            }
+        }
+        document.write(result);
+    </script>
+</head>
+<body>
+</body>
+</html>

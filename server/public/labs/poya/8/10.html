@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 8.10</title>
+</head>
+
+<body>
+    <form action="" method="get" name="my">
+        Сколько бит в 1 байте? <input type="text" id="answer" size="3"><br>
+        <input name="b1" type="button" onClick="check()" value="Проверить">
+    </form>
+    <script>
+        function check(){
+            if (document.getElementById("answer").value == "8") {
+                alert("Правильно!");
+            } else {
+                alert("Неправильно! Попробуйте ещё раз.");
+            }
+        }
+    </script>
+</body>
+
+</html>

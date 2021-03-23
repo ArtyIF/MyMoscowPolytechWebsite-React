@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 7.4</title>
+    <script>
+        function viewDate(inDays) {
+            var now = new Date();
+            var dateInDays = now;
+            dateInDays.setDate(now.getDate() + inDays);
+            
+            var monthInRussian = "";
+            switch (dateInDays.getMonth()) {
+                case 0:
+                    monthInRussian = "января";
+                    break;
+                case 1:
+                    monthInRussian = "февраля";
+                    break;
+                case 2:
+                    monthInRussian = "марта";
+                    break;
+                case 3:
+                    monthInRussian = "апреля";
+                    break;
+                case 4:
+                    monthInRussian = "мая";
+                    break;
+                case 5:
+                    monthInRussian = "июня";
+                    break;
+                case 6:
+                    monthInRussian = "июля";
+                    break;
+                case 7:
+                    monthInRussian = "августа";
+                    break;
+                case 8:
+                    monthInRussian = "сентября";
+                    break;
+                case 9:
+                    monthInRussian = "октября";
+                    break;
+                case 10:
+                    monthInRussian = "ноября";
+                    break;
+                case 11:
+                    monthInRussian = "декабря";
+                    break;
+            }
+
+            var properDaysForm = "дней";
+            if (inDays % 100 < 10 || inDays % 100 >= 20) {
+                if (inDays % 10 == 1) {
+                    properDaysForm = "день";
+                }
+                if (inDays % 10 >= 2 && inDays % 10 < 5) {
+                    properDaysForm = "дня";
+                }
+            }
+
+            var weekday = "";
+            switch (now.getDay()) {
+                case 0:
+                    weekday = "воскресенье";
+                    break;
+                case 1:
+                    weekday = "понедельник";
+                    break;
+                case 2:
+                    weekday = "вторник";
+                    break;
+                case 3:
+                    weekday = "среда";
+                    break;
+                case 4:
+                    weekday = "четверг";
+                    break;
+                case 5:
+                    weekday = "пятница";
+                    break;
+                case 6:
+                    weekday = "суббота";
+                    break;
+            }
+
+            document.write("Через " + inDays + " " + properDaysForm + " будет " + dateInDays.getDate() + " " + monthInRussian + " " + dateInDays.getFullYear() + " года (это " + weekday + ").");
+        }
+
+        var inDays = parseInt(prompt("Введите число от 1 до 1000:"));
+        if (isNaN(inDays) || inDays > 1000 || inDays < 1) {
+            document.write("Вы ввели не число или число не от 1 до 1000.");
+        } else {
+            viewDate(inDays);
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

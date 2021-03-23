@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 8.3</title>
+</head>
+<body>
+    <form id="form">
+        Имя: <input type="text" id="name"><br>
+        Кол-во пончиков: <input type="text" id="donuts"><br>
+        Минут: <input type="text" id="minutes"><br>
+        Подитог: <input type="text" id="poditog"><br>
+        Налог: <input type="text" id="tax"><br>
+        Итог: <input type="text" id="itog"><br>
+        <input type="submit" value="заказать" onclick="placeOrder();">
+    </form>
+    <script type="text/javascript">
+        function placeOrder() {
+            if (document.getElementById("name").value == "") {
+                alert("Извините, но Вы должны написать имя, прежде чем выполнить заказ.");
+            } else if (document.getElementById("minutes").value == "" || isNaN(parseInt(document.getElementById("minutes").value))) {
+                alert("Извините, но Вы должны ввести кол-во минут приготовления, прежде чем выполнить заказ.");
+            } else {
+                document.getElementById("form").submit();
+            }
+        }
+    </script>
+</body>
+
+</html>

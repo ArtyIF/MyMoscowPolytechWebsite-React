@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ЛР8 Раздел 1</title>
+    <style>
+        body {
+            background-image: url("/static/vss/lr2/background.jpg");
+        }
+
+        img {
+            border-radius: 8px;
+            height: 256px;
+            position: absolute;
+        }
+
+        .img-1 {
+            border: 8px red ridge;
+            left: 100px;
+            top: 8px;
+            z-index: 1;
+        }
+
+        .img-2 {
+            border: 12px lime outset;
+            left: 256px;
+            top: 256px;
+            z-index: 2;
+        }
+
+        .img-3 {
+            border: 16px blue solid;
+            border-image: url("http://htmlbook.ru/files/images/css/css_border-image-1.png") 16 round;
+            left: 0px;
+            top: 200px;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://media.istockphoto.com/photos/enough-nonsense-picture-id173815235" class="img-1">
+    <img src="https://image.shutterstock.com/image-photo/man-dressed-pirate-cd-his-600w-171607586.jpg" class="img-2">
+    <img src="https://media.istockphoto.com/photos/businessman-in-tune-with-business-picture-id521113779" class="img-3">
+</body>
+</html>

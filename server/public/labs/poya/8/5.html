@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 8.5</title>
+</head>
+<body>
+    <img id="smileImg" src="https://www.clipartmax.com/png/full/64-643228_sad-smiley-simple-yellow-sad-smiley-png.png" onclick="sayHello()" height="128">
+    <script type="text/javascript">
+        function sayHello() {
+            var userName = prompt("Как вас зовут?");
+            if(userName) {
+                alert("Рады Вас видеть, " + userName + "!");
+                document.getElementById("smileImg").src = "https://clipart-best.com/img/smiley/smiley-clip-art-4.png";
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ЛР4 Раздел 3</title>
+</head>
+<body>
+    <p id="randomLetters">Тут будет 128 разных символов</p>
+    <span style="background-color: red; position: absolute; font-size: 2em; top: 4em; left: 0em;" id="shakeLeft">лево-право</span>
+    <span style="background-color: lime; position: absolute; font-size: 2em; top: 6em; left: 0em;" id="shakeUp">вверх-вниз</span>
+    <script>
+        // функция взята из https://stackoverflow.com/questions/6234773/can-i-escape-html-special-chars-in-javascript
+        function escapeHtml(unsafe) {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        let randomLettersText = "";
+        for (let i = 0; i < 128; i++) {
+            randomLettersText += String.fromCharCode(Math.floor((Math.random() * 9) + 33));
+        }
+        randomLettersText = escapeHtml(randomLettersText);
+        document.getElementById("randomLetters").innerHTML = randomLettersText;
+        
+        let time = 0;
+        setInterval(() => {
+            document.getElementById("shakeLeft").style.left = ((Math.sin(time) * 2) + 2) + "em";
+            document.getElementById("shakeUp").style.top = ((Math.sin(time) * 2) + 6) + "em";
+            time += 0.04;
+        }, 10);
+    </script>
+</body>
+</html>

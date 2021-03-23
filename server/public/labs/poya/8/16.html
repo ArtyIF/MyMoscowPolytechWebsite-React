@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 8.16</title>
+</head>
+<script>
+    function check() {
+        if (document.f1.ch1.checked && document.f1.ch2.checked && !document.f1.ch3.checked) {
+            alert("Молодец");
+        } else {
+            alert("Не молодец");
+        }
+    }
+</script>
+<body>
+    <form name="f1">
+        Здесь написан вопрос<br>
+        <input type="checkbox" name="ch1"> Правильный<br>
+        <input type="checkbox" name="ch2"> Правильный<br>
+        <input type="checkbox" name="ch3"> Неправильный<br>
+        <input type="button" value="Проверить" onclick="check()">
+    </form>
+</body>
+</html>

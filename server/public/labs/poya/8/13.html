@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 8.13</title>
+</head>
+<script>
+    function initSeats() {
+        document.getElementById("seat0").alt = "yes";
+        document.getElementById("seat1").alt = "no";
+        document.getElementById("seat2").alt = "no";
+        document.getElementById("seat3").alt = "yes";
+        document.getElementById("seat0").onclick = function() { showSeatStatus(0) };
+        document.getElementById("seat1").onclick = function() { showSeatStatus(1) };
+        document.getElementById("seat2").onclick = function() { showSeatStatus(2) };
+        document.getElementById("seat3").onclick = function() { showSeatStatus(3) };
+        document.getElementById("findseats").onclick = findSeats;
+        
+    }
+    
+    function showSeatStatus(num) {
+        if (document.getElementById("seat" + num).alt == "yes") {
+            alert("Свободно");
+        } else {
+            alert("Занято");
+        }
+    }
+
+    function findSeats() {
+        if (document.getElementById("seat0").alt == "yes") {
+            document.getElementById("seat0").style = "border: 5px solid gray";
+        }
+        if (document.getElementById("seat1").alt == "yes") {
+            document.getElementById("seat1").style = "border: 5px solid gray";
+        }
+        if (document.getElementById("seat2").alt == "yes") {
+            document.getElementById("seat2").style = "border: 5px solid gray";
+        }
+        if (document.getElementById("seat3").alt == "yes") {
+            document.getElementById("seat3").style = "border: 5px solid gray";
+        }
+    }
+</script>
+<body onload="initSeats()">
+    <img src="https://dg-home.ru/pic/17882/kreslo_1__3__.jpg" height="128" id="seat0" alt="" title="seat0">
+    <img src="https://dg-home.ru/pic/17882/kreslo_1__3__.jpg" height="128" id="seat1" alt="" title="seat1">
+    <img src="https://dg-home.ru/pic/17882/kreslo_1__3__.jpg" height="128" id="seat2" alt="" title="seat2">
+    <img src="https://dg-home.ru/pic/17882/kreslo_1__3__.jpg" height="128" id="seat3" alt="" title="seat3">
+    <br>
+    <input type="button" id="findseats" value="Определить свободные места">
+</body>
+</html>

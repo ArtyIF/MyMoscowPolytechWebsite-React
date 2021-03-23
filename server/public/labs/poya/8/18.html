@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 8.18</title>
+</head>
+<script>
+    function check() {
+        document.getElementById('t1').value = document.getElementById('menu1').value;
+    }
+</script>
+<body>
+    <input type="text" id="t1"><br>
+    <select id="menu1" onchange="check()">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+</body>
+</html>

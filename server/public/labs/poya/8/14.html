@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 8.14</title>
+</head>
+<body onload="document.getElementById('seat0').alt = 'yes'; document.getElementById('seat1').alt = 'no'; document.getElementById('seat2').alt = 'no'; document.getElementById('seat3').alt = 'yes';">
+    <img src="https://dg-home.ru/pic/17882/kreslo_1__3__.jpg" height="128" id="seat0" alt="" title="seat0" onclick="if (this.alt == 'yes') alert('Свободно'); else alert('Занято')">
+    <img src="https://dg-home.ru/pic/17882/kreslo_1__3__.jpg" height="128" id="seat1" alt="" title="seat1" onclick="if (this.alt == 'yes') alert('Свободно'); else alert('Занято')">
+    <img src="https://dg-home.ru/pic/17882/kreslo_1__3__.jpg" height="128" id="seat2" alt="" title="seat2" onclick="if (this.alt == 'yes') alert('Свободно'); else alert('Занято')">
+    <img src="https://dg-home.ru/pic/17882/kreslo_1__3__.jpg" height="128" id="seat3" alt="" title="seat3" onclick="if (this.alt == 'yes') alert('Свободно'); else alert('Занято')">
+    <br>
+    <input type="button" id="findseats" value="Определить свободные места" onclick="if (document.getElementById('seat0').alt == 'yes') document.getElementById('seat0').style = 'border: 5px solid gray'; if (document.getElementById('seat1').alt == 'yes') document.getElementById('seat1').style = 'border: 5px solid gray'; if (document.getElementById('seat2').alt == 'yes') document.getElementById('seat2').style = 'border: 5px solid gray'; if (document.getElementById('seat3').alt == 'yes') document.getElementById('seat3').style = 'border: 5px solid gray';">
+</body>
+</html>

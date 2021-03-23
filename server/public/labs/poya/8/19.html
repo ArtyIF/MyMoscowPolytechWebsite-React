@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 8.19</title>
+</head>
+<script>
+    function check() {
+        if (document.getElementById("menu1").value == "joule") {
+            alert("Молодец");
+        } else {
+            alert("Не молодец");
+        }
+    }
+</script>
+<body>
+    В каких единицах измерения измеряется работа?<br>
+    <select id="menu1">
+        <option value="mole">Моль</option>
+        <option value="joule">Джоуль</option>
+    </select><br>
+    <button onclick="check()">Проверить</button>
+</body>
+</html>

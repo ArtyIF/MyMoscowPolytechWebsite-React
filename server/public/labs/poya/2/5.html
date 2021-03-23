@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 2.5</title>
+    <script>
+        var pwd = parseInt(prompt("Введите пароль"));
+        switch (pwd) {
+            case 9583:
+            case 1747:
+                alert("Вам доступны модули баз уровня A, B и C");
+                break;
+            case 3331:
+            case 7922:
+                alert("Вам доступны модули баз уровня B и C");
+                break;
+            case 9455:
+            case 8997:
+                alert("Вам доступен только модуль базы уровня C");
+                break;
+            default:
+                alert("Доступ запрещён");
+                break;
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

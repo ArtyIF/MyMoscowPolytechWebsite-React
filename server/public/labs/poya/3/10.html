@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 3.10</title>
+    <script>
+        while (true) {
+            try {
+                var num = parseInt(prompt("Игрок 1, введите число"));
+                if (isNaN(num)) {
+                    alert("Это не число");
+                } else {
+                    break;
+                }
+            } catch {
+                alert("Это не число");
+            }
+        }
+        attempts = 0;
+        while (true) {
+            try {
+                attempts++;
+                var guessedNum = parseInt(prompt("Игрок 2, угадайте число"));
+                if (guessedNum === num) {
+                    alert("Вы угадали с " + attempts + "-го раза!");
+                    break;
+                }
+                else if (guessedNum < num) {
+                    alert("Мало");
+                } else if (guessedNum > num) {
+                    alert("Много");
+                } else {
+                    alert("Это не число");
+                }
+            } catch {
+                alert("Это не число");
+            }
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

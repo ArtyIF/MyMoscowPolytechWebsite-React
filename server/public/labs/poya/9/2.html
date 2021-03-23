@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 9.2</title>
+    <script type="text/javascript">
+        function draw() {
+            var canvas = document.getElementById('canvas');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+
+                for (let x = 50; x <= 290; x += 30) {
+                    ctx.beginPath();
+                    ctx.fillStyle = 'hsl(' + x + ', 100%, 50%)';
+                    ctx.ellipse(x, 100, 10, 10, 0, 0, 2 * Math.PI);
+                    ctx.fill();
+                }
+            }
+        }
+    </script>
+    <style type="text/css">
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body onload="draw();">
+    <canvas id="canvas" width="400" height="400"></canvas>
+</body>
+</html>

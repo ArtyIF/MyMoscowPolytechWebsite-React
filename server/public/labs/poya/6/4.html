@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 6.4</title>
+    <script>
+        String.prototype.uroven="1";
+        String.prototype.printMe = function() {
+            document.writeln(`<h${this.uroven}>Ура!</h${this.uroven}>`);
+        }
+        function printZagolovok(s) {
+            for (let i = 1; i <= 6; i++) {
+                s.uroven = i;
+                s.printMe();
+            }
+        }
+        var s=new String();
+        printZagolovok(s);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

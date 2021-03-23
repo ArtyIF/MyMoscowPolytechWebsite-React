@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 8.9</title>
+</head>
+<body>
+    <form action="mailto:address@example.com">
+        <label for="textField">Введите Ваше сообщение:</label>
+        <br>
+        <textarea id="textField" onchange="if (document.getElementById('textField').value !== '') document.getElementById('clearButton').value = 'Очистить';"></textarea>
+        <br>
+        <input type="submit" value="Отправить">
+        <input type="button" value="Очистить" id="clearButton" onclick="document.getElementById('textField').value = ''; this.value = 'Готово!';">
+    </form>
+</body>
+</html>

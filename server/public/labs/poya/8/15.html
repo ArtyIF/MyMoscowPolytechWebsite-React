@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ПЗ ПОО 8.15</title>
+</head>
+<script>
+    function validateNonEmpty(inputField) {
+        // Проверка на наличие текста
+        if (inputField.value.length == 0) {
+            // Сообщаем пользователю, что данные не введены
+            alert("Заполните поле.");
+            return false;
+        }
+        return true;
+    }
+
+    function checkAll() {
+        for (var i = 1; i <= 4; i++) {
+            document.getElementById('t' + i).onblur();
+        }
+    }
+</script>
+<body>
+    <form name="f1">
+        Ваше имя:<br>
+        <input type="text" id="t1" onblur="validateNonEmpty(this)">
+        <input type="text" id="t2" onblur="validateNonEmpty(this)">
+        <input type="text" id="t3" onblur="validateNonEmpty(this)">
+        <input type="text" id="t4" onblur="validateNonEmpty(this)"><br>
+        <input id="b1" type="button" onclick="checkAll()" value="Проверить">
+    </form>
+</body>
+</html>

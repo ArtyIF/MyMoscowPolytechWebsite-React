@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ЛР4 Раздел 6</title>
+</head>
+<body>
+    <h1>Анализатор JavaScript</h1>
+    <p>Введите любое выражение в JavaScript, в котором есть переменные "analyze" и "compareTo"</p>
+    <textarea style="width: 100%" rows="16" id="code">var analyze = 1;
+var compareTo = true;</textarea>
+    <button onclick="_()">Выполнить</button>
+    <hr>
+    <p>Тип analyze через typeof: <span id="typeof">ещё не выполнено</span></p>
+    <p>Преобразование analyze в строку: <span id="toString">ещё не выполнено</span></p>
+    <p>Сложение строки "Привет, " и analyze: <span id="stringAppend">ещё не выполнено</span></p>
+    <p>Преобразование строки analyze в десятичное число: <span id="stringToFloat">ещё не выполнено</span></p>
+    <p>Преобразование строки analyze в целое число: <span id="stringToInt">ещё не выполнено</span></p>
+    <hr>
+    <p>Тип compareTo через typeof: <span id="compareToTypeof">ещё не выполнено</span></p>
+    <p>analyze == compareTo: <span id="analyzeEqCompareTo">ещё не выполнено</span></p>
+    <p>analyze === compareTo: <span id="analyzeSeqCompareTo">ещё не выполнено</span></p>
+    <p>analyze != compareTo: <span id="analyzeNeqCompareTo">ещё не выполнено</span></p>
+    <p>analyze !== compareTo: <span id="analyzeSneqCompareTo">ещё не выполнено</span></p>
+    <p>analyze &gt; compareTo: <span id="analyzeMoreCompareTo">ещё не выполнено</span></p>
+    <p>analyze &lt; compareTo: <span id="analyzeLessCompareTo">ещё не выполнено</span></p>
+    <p>analyze &gt;= compareTo: <span id="analyzeMoreEqCompareTo">ещё не выполнено</span></p>
+    <p>analyze &lt;= compareTo: <span id="analyzeLessEqCompareTo">ещё не выполнено</span></p>
+    <p>analyze &amp;&amp; compareTo: <span id="analyzeAndCompareTo">ещё не выполнено</span></p>
+    <p>analyze || compareTo: <span id="analyzeOrCompareTo">ещё не выполнено</span></p>
+    <p>!analyze: <span id="notAnalyze">ещё не выполнено</span></p>
+    <script>
+        "use strict";
+
+        function _() {
+            var codeToRun = document.getElementById("code").value;
+            codeToRun += 'document.getElementById("typeof").innerText = typeof analyze;';
+            codeToRun += 'document.getElementById("toString").innerText = analyze.toString();';
+            codeToRun += 'document.getElementById("stringAppend").innerText = "Привет, " + analyze;';
+            codeToRun += 'document.getElementById("stringToFloat").innerText = parseFloat(analyze);';
+            codeToRun += 'document.getElementById("stringToInt").innerText = parseInt(analyze);';
+            
+            codeToRun += 'document.getElementById("compareToTypeof").innerText = typeof compareTo;';
+            codeToRun += 'document.getElementById("analyzeEqCompareTo").innerText = analyze == compareTo;';
+            codeToRun += 'document.getElementById("analyzeSeqCompareTo").innerText = analyze === compareTo;';
+            codeToRun += 'document.getElementById("analyzeNeqCompareTo").innerText = analyze != compareTo;';
+            codeToRun += 'document.getElementById("analyzeSneqCompareTo").innerText = analyze !== compareTo;';
+            codeToRun += 'document.getElementById("analyzeMoreCompareTo").innerText = analyze > compareTo;';
+            codeToRun += 'document.getElementById("analyzeLessCompareTo").innerText = analyze < compareTo;';
+            codeToRun += 'document.getElementById("analyzeMoreEqCompareTo").innerText = analyze >= compareTo;';
+            codeToRun += 'document.getElementById("analyzeLessEqCompareTo").innerText = analyze <= compareTo;';
+            codeToRun += 'document.getElementById("analyzeAndCompareTo").innerText = analyze && compareTo;';
+            codeToRun += 'document.getElementById("analyzeOrCompareTo").innerText = analyze || compareTo;';
+            codeToRun += 'document.getElementById("notAnalyze").innerText = !analyze;';
+            try {
+                eval(codeToRun);
+            } catch {}
+        }
+    </script>
+</body>
+</html>

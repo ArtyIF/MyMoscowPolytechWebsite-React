@@ -3,7 +3,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var restRouter = require('./routes/rest');
+var apiRouter = require('./routes/api');
 
 var app = express();
 
@@ -15,6 +15,6 @@ app.use(express.static(path.join(__dirname, '..', 'client', 'public'))); // не
 app.use(express.static(path.join(__dirname, '..', 'client', 'build'))); // собранная статика
 app.use(express.static(path.join(__dirname, 'public'))); // не знаю пригодится или нет но кто знает
 
-app.use('/api', restRouter);
+app.use('/api', apiRouter);
 
 module.exports = app;
