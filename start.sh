@@ -8,3 +8,5 @@ npm start &
 cd ..
 
 wait $(jobs -p)
+
+# TODO: протестировать и исправить

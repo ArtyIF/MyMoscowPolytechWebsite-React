@@ -1,8 +1,17 @@
 import React from 'react';
 import { Breadcrumbs, BreadcrumbsItem } from 'react-breadcrumbs-dynamic';
-import { Route, Switch, NavLink } from 'react-router-dom';
+import { Route, Switch, NavLink, useLocation } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 export function App() {
+    return (
+        <InternalApp />
+    );
+}
+
+function InternalApp() {
+    let location = useLocation();
+
     return (
         <div>
             <header>
@@ -13,11 +22,15 @@ export function App() {
                     finalItem={'b'}
                 />
             </header>
-            <Switch>
-                <Route exact path="/" component={Home}/>
-                <Route path="/test" component={Test}/>
-                <Route path="*" component={Error404}/>
-            </Switch>
+            <TransitionGroup>
+                <CSSTransition key={location.key} classNames="fade" timeout={1000}>
+                    <Switch location={location}>
+                        <Route exact path="/" children={Home}/>
+                        <Route path="/test" children={Test}/>
+                        <Route path="*" children={Error404}/>
+                    </Switch>
+                </CSSTransition>
+            </TransitionGroup>
         </div>
     );
 }
@@ -25,9 +38,9 @@ export function App() {
 export function Home() {
     return (
         <main>
-            <BreadcrumbsItem to="/">Главная страница</BreadcrumbsItem>
-            <p>Ага-ага</p>
-            <NavLink to="/test">тык</NavLink>
+            <BreadcrumbsItem to="/">test page 1</BreadcrumbsItem>
+            <p>test page 1 contents</p>
+            <NavLink to="/test">test page 2 link</NavLink>
         </main>
     );
 }
@@ -35,9 +48,9 @@ export function Home() {
 export function Test() {
     return (
         <main>
-            <BreadcrumbsItem to="/">Главная страница</BreadcrumbsItem>
-            <BreadcrumbsItem to="/test">Тестовая страница</BreadcrumbsItem>
-            <p>Блаблабла</p>
+            <BreadcrumbsItem to="/">test page 1</BreadcrumbsItem>
+            <BreadcrumbsItem to="/test">test page 2</BreadcrumbsItem>
+            <p>test page 2 contents</p>
         </main>
     );
 }
