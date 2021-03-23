@@ -1,6 +1,6 @@
 import React from 'react';
 import { Breadcrumbs, BreadcrumbsItem } from 'react-breadcrumbs-dynamic';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, Switch, NavLink } from 'react-router-dom';
 
 export function App() {
     return (
@@ -13,8 +13,11 @@ export function App() {
                     finalItem={'b'}
                 />
             </header>
-            <Route exact path="/" component={Home}/>
-            <Route path="/test" component={Test}/>
+            <Switch>
+                <Route exact path="/" component={Home}/>
+                <Route path="/test" component={Test}/>
+                <Route path="*" component={Error404}/>
+            </Switch>
         </div>
     );
 }
@@ -35,6 +38,16 @@ export function Test() {
             <BreadcrumbsItem to="/">Главная страница</BreadcrumbsItem>
             <BreadcrumbsItem to="/test">Тестовая страница</BreadcrumbsItem>
             <p>Блаблабла</p>
+        </main>
+    );
+}
+
+export function Error404() {
+    return (
+        <main>
+            <BreadcrumbsItem to="/">Главная страница</BreadcrumbsItem>
+            <BreadcrumbsItem to="/404">Страница не найдена</BreadcrumbsItem>
+            <p>Страница не найдена!</p>
         </main>
     );
 }
