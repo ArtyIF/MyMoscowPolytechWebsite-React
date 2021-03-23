@@ -1,6 +1,6 @@
 import React from 'react';
 import { Breadcrumbs, BreadcrumbsItem } from 'react-breadcrumbs-dynamic';
-import { Route, Switch, NavLink, useLocation } from 'react-router-dom';
+import { Route, Switch, Link, NavLink, useLocation } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 export function App() {
@@ -23,7 +23,7 @@ function InternalApp() {
                 />
             </header>
             <TransitionGroup>
-                <CSSTransition key={location.key} classNames="fade" timeout={1000}>
+                <CSSTransition key={location.key} classNames="fade" timeout={300}>
                     <Switch location={location}>
                         <Route exact path="/" children={Home}/>
                         <Route path="/test" children={Test}/>
@@ -40,7 +40,7 @@ export function Home() {
         <main>
             <BreadcrumbsItem to="/">test page 1</BreadcrumbsItem>
             <p>test page 1 contents</p>
-            <NavLink to="/test">test page 2 link</NavLink>
+            <Link to="/test">test page 2 link</Link>
         </main>
     );
 }
