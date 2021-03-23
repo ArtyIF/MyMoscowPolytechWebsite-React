@@ -72,6 +72,7 @@ function SubTest() {
         <main>
             <BreadcrumbsItem to="/test/sub">{PageNames.SubTest}</BreadcrumbsItem>
             <p>test page 3 contents</p>
+            <Link to="/">back</Link>
         </main>
     );
 }
