@@ -8,7 +8,7 @@ export function App() {
             <header>
                 <h1>Сайт Артёма Фомина</h1>
                 <Breadcrumbs
-                    separator={<b> / </b>}
+                    separator={<span> &gt; </span>}
                     item={NavLink}
                     finalItem={'b'}
                 />
