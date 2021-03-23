@@ -28,7 +28,7 @@ body {
 }
 
 header {
-    background-color: lime;
+    background-color: #00E676;
     padding: 8px;
 }
 
@@ -58,17 +58,17 @@ main {
 }
 
 .sidebar {
-    background-color: #102010;
-    color: white;
+    background-color: #1B5E20;
     width: 256px;
 }
 
 .sidebar-header {
     padding: 4px 8px;
-    background-color: #089008;
+    background-color: #00C853;
     font-weight: bold;
 }
 
 .sidebar-content {
     padding: 4px 8px 16px 8px;
+    color: white;
 }
