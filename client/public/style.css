@@ -1,6 +1,7 @@
 .fade-enter {
     opacity: 0;
     transform: translateY(8px);
+    position: absolute;
 }
 
 .fade-enter-active {
@@ -12,6 +13,7 @@
 .fade-exit {
     opacity: 1;
     transform: translateY(0px);
+    position: absolute;
 }
 
 .fade-exit-active {
