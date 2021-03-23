@@ -14,7 +14,7 @@ function InternalApp() {
     let location = useLocation();
 
     return (
-        <div>
+        <div className="page">
             <header>
                 <h1>Сайт Артёма Фомина</h1>
                 <BreadcrumbsItem to="/">{PageNames.Home}</BreadcrumbsItem>
@@ -24,37 +24,45 @@ function InternalApp() {
                     finalItem={'b'}
                 />
             </header>
-            <TransitionGroup>
-                <CSSTransition key={location.key} classNames="fade" timeout={400}>
-                    <Switch location={location}>
-                        <Route exact path="/" component={Home}/>
-                        <Route path="/test" component={Test}/>
-                        <Route render={Error404}/>
-                    </Switch>
-                </CSSTransition>
-            </TransitionGroup>
+            <main>
+                <div className="sidebar">
+                    <div className="sidebar-header">Заголовок</div>
+                    <div className="sidebar-content">Элементы</div>
+                </div>
+                <div className="content">
+                    <TransitionGroup>
+                        <CSSTransition key={location.key} classNames="fade" timeout={400}>
+                            <Switch location={location}>
+                                <Route exact path="/" component={Home}/>
+                                <Route path="/test" component={Test}/>
+                                <Route render={Error404}/>
+                            </Switch>
+                        </CSSTransition>
+                    </TransitionGroup>
+                </div>
+            </main>
         </div>
     );
 }
 
 function Home() {
     return (
-        <main>
+        <div>
             <p>test page 1 contents</p>
             <Link to="/test">test page 2 link</Link>
-        </main>
+        </div>
     );
 }
 
 function Test() {
     return (
-        <main>
+        <div>
             <BreadcrumbsItem to="/test">{PageNames.Test}</BreadcrumbsItem>
             <Switch>
                 <Route path="/test/sub" component={SubTest}/>
                 <Route render={DefaultTest}/>
             </Switch>
-        </main>
+        </div>
     );
 }
 
@@ -69,20 +77,20 @@ function DefaultTest() {
 
 function SubTest() {
     return (
-        <main>
+        <div>
             <BreadcrumbsItem to="/test/sub">{PageNames.SubTest}</BreadcrumbsItem>
             <p>test page 3 contents</p>
             <Link to="/">back</Link>
-        </main>
+        </div>
     );
 }
 
 function Error404() {
     return (
-        <main>
+        <div>
             <BreadcrumbsItem to="/404">{PageNames.Error404}</BreadcrumbsItem>
             <p>Страница не найдена!</p>
-        </main>
+        </div>
     );
 }
 
