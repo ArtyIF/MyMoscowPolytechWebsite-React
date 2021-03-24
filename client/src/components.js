@@ -28,7 +28,7 @@ function InternalApp() {
                     <CSSTransition key={location.key} classNames="fade" timeout={400}>
                         <Switch location={location}>
                             <Route exact path="/" component={YearsView}/>
-                            <Route exact path="/:year" component={DisciplinesView}/>
+                            <Route path="/:year" component={DisciplinesView}/>
                             <Route render={Error404}/>
                         </Switch>
                     </CSSTransition>
@@ -96,19 +96,45 @@ function YearsView() {
     return (
         <div>
             <h2>Выберите год</h2>
-            <StuffList apiURL="/api/years" pageURLPrefix="/y" humanNameURLPrefix='/api/humanname?year=' />
+            <StuffList apiURL="/api/years" pageURLPrefix="/y_" humanNameURLPrefix='/api/humanname?year=' />
         </div>
     );
 }
 
 function DisciplinesView() {
     let { year } = useRouteMatch().params;
-    let yearID = year.substring(1);
+    let yearID = year.substring(2);
     return (
         <div>
             <BreadcrumbsItem to={"/" + year}><HumanName apiURL={'/api/humanname?year=' + yearID} /></BreadcrumbsItem>
+            <Switch>
+                <Route path="/:year/:discipline" component={LabsView}/>
+                <Route component={RealDisciplinesView} />
+            </Switch>
+        </div>
+    )
+}
+
+function RealDisciplinesView() {
+    let { year } = useRouteMatch().params;
+    let yearID = year.substring(2);
+    return (
+        <div>
             <h2>Выберите предмет</h2>
             <StuffList apiURL={'/api/disciplines?year=' + yearID} pageURLPrefix={"/" + year + "/d_"} humanNameURLPrefix={'/api/humanname?year=' + yearID + '&discipline='} />
+        </div>
+    );
+}
+
+function LabsView() {
+    let { year, discipline } = useRouteMatch().params;
+    let yearID = year.substring(2);
+    let disciplineID = discipline.substring(2);
+    return (
+        <div>
+            <BreadcrumbsItem to={"/" + year + '/' + discipline}><HumanName apiURL={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID} /></BreadcrumbsItem>
+            <h2>Выберите работу</h2>
+            <StuffList apiURL={'/api/labs?year=' + yearID + '&discipline=' + disciplineID} pageURLPrefix={"/" + year + "/" + discipline + "/l_"} humanNameURLPrefix={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID + '&lab='} />
         </div>
     );
 }
