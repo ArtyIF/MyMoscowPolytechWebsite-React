@@ -6,12 +6,15 @@ var fs = require('fs');
 const getDirectories = source => fs.readdirSync(source, { withFileTypes: true }).filter(dirent => dirent.isDirectory()).map(dirent => dirent.name);
 
 router.get('/disciplines', function(req, res, next) {
-    let disciplineIDs = getDirectories(path.join(__dirname, '..', 'public', 'labs'));
+    if (!req.query.year) {
+        res.status(400).send("400");
+    }
+    let disciplineIDs = getDirectories(path.join(__dirname, '..', 'public', 'labs', req.query.year));
     let disciplinesDictList = [];
     disciplineIDs.map((value) => {
         let humanName = "Нет humanname! (ID: " + value + ")";
-        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', value, 'humanname'))) {
-            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', value, 'humanname'), 'utf8');
+        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, value, 'humanname'))) {
+            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, value, 'humanname'), 'utf8');
         }
         disciplinesDictList.push({'id': value, 'name': humanName})
     });
@@ -35,13 +38,16 @@ function naturalCompare(a, b) {
 }
 
 router.get('/labs', function(req, res, next) {
-    let labIDs = getDirectories(path.join(__dirname, '..', 'public', 'labs', req.query.discipline));
+    if (!req.query.year || !req.query.discipline) {
+        res.status(400).send("400");
+    }
+    let labIDs = getDirectories(path.join(__dirname, '..', 'public', 'labs', req.query.year, req.query.discipline));
     labIDs.sort(naturalCompare);
     let labsDictList = [];
     labIDs.map((value) => {
         let humanName = "Лабораторная работа " + value;
-        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', req.query.discipline, value, 'humanname'))) {
-            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', req.query.discipline, value, 'humanname'), 'utf8');
+        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, req.query.discipline, value, 'humanname'))) {
+            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, req.query.discipline, value, 'humanname'), 'utf8');
         }
         labsDictList.push({'id': value, 'name': humanName});
     });
