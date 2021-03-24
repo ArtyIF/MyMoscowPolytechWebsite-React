@@ -2,3 +2,4 @@
 - Сделать collapsable заголовок
 - Сделать каталог лаб
 - Пофиксить возвращение у бредкрамбов если возможно
+- Исправить Each child in a list should have a unique "key" prop.

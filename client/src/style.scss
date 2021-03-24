@@ -9,7 +9,7 @@ $main-color-fg: black;
         &-active {
             opacity: 1;
             transform: translateX(0px);
-            transition: opacity 400ms 200ms, transform 200ms 200ms;
+            transition: opacity 200ms, transform 200ms;
         }
     }
 
@@ -20,14 +20,13 @@ $main-color-fg: black;
         &-active {
             opacity: 0;
             transform: translateX(-8px);
-            transition: opacity 100ms, transform 200ms;
+            transition: opacity 200ms, transform 200ms;
         }
     }
 }
 
 body {
     font-family: 'PT Sans', sans-serif;
-    font-size: 16px;
     margin: 0;
 }
 

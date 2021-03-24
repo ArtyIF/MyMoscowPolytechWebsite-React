@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Breadcrumbs, BreadcrumbsItem } from 'react-breadcrumbs-dynamic';
-import { Route, Switch, Link, NavLink, useLocation } from 'react-router-dom';
+import { Route, Switch, Link, NavLink, useLocation, useRouteMatch } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import PageNames from './page-names';
 
 function App() {
     return (
@@ -17,7 +16,7 @@ function InternalApp() {
         <div>
             <header>
                 <h1>Сайт Артёма Фомина</h1>
-                <BreadcrumbsItem to="/">{PageNames.Home}</BreadcrumbsItem>
+                <BreadcrumbsItem to="/">Лабораторные работы</BreadcrumbsItem>
                 <Breadcrumbs
                     separator={<span> &gt; </span>}
                     item={NavLink}
@@ -28,8 +27,8 @@ function InternalApp() {
                 <TransitionGroup>
                     <CSSTransition key={location.key} classNames="fade" timeout={400}>
                         <Switch location={location}>
-                            <Route exact path="/" component={Home}/>
-                            <Route path="/test" component={Test}/>
+                            <Route exact path="/" component={YearsView}/>
+                            <Route path="/:year" component={DisciplinesView}/>
                             <Route render={Error404}/>
                         </Switch>
                     </CSSTransition>
@@ -39,202 +38,52 @@ function InternalApp() {
     );
 }
 
-function Home() {
+class StuffList extends Component {
+    state = {
+        error: null,
+        response: []
+    }
+
+    componentDidMount() {
+        fetch(this.props.apiURL).then((res) => res.json())
+            .then((res) => {
+                this.setState({response: res});
+            })
+            .then((err) => {
+                this.setState({error: err});
+            })
+    }
+    
+    render() {
+        let res;
+        if (!this.error) {
+            res = this.state.response.map((value) => (
+                <p>{<Link to={this.props.pageURLPrefix + value.id}>{value.humanName}</Link>}</p>
+            ));
+        } else {
+            res = (<p>Ошибка загрузки: {this.state.error}</p>)
+        }
+        return (<div>{res}</div>);
+    }
+}
+
+function YearsView() {
     return (
         <div>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
-            <p>test page 1 contents</p>
-            <p><Link to="/test">test page 2 link</Link></p>
+            <h2>Выберите год</h2>
+            <StuffList apiURL="/api/years" pageURLPrefix="/y" />
         </div>
     );
 }
 
-function Test() {
+function DisciplinesView() {
+    let { year } = useRouteMatch().params;
+    let yearID = year.substring(1);
     return (
         <div>
-            <BreadcrumbsItem to="/test">{PageNames.Test}</BreadcrumbsItem>
-            <Switch>
-                <Route path="/test/sub" component={SubTest}/>
-                <Route render={DefaultTest}/>
-            </Switch>
-        </div>
-    );
-}
-
-function DefaultTest() {
-    return (
-        <div>
-            <p>test page 2 contents</p>
-            <Link to="/test/sub">test page 3 link</Link>
-        </div>
-    );
-}
-
-function SubTest() {
-    return (
-        <div>
-            <BreadcrumbsItem to="/test/sub">{PageNames.SubTest}</BreadcrumbsItem>
-            <p>test page 3 contents</p>
-            <Link to="/">back</Link>
+            <BreadcrumbsItem to={"/" + year}>insert humanname here</BreadcrumbsItem>
+            <h2>Выберите предмет</h2>
+            <StuffList apiURL={'/api/disciplines?year=' + yearID} pageURLPrefix={"/" + year + "/d_"} />
         </div>
     );
 }
@@ -242,7 +91,7 @@ function SubTest() {
 function Error404() {
     return (
         <div>
-            <BreadcrumbsItem to="/404">{PageNames.Error404}</BreadcrumbsItem>
+            <BreadcrumbsItem to="/404">Ошибка 404</BreadcrumbsItem>
             <p>Страница не найдена!</p>
         </div>
     );

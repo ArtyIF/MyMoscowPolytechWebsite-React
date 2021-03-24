@@ -6,12 +6,10 @@ import App from './components';
 import './style.scss'
 
 ReactDOM.render(
-    <React.StrictMode>
-        <BrowserRouter>
-            <BreadcrumbsProvider>
-                <App />
-            </BreadcrumbsProvider>
-        </BrowserRouter>
-    </React.StrictMode>,
+    <BrowserRouter>
+        <BreadcrumbsProvider>
+            <App />
+        </BreadcrumbsProvider>
+    </BrowserRouter>,
     document.getElementById('root')
 );
