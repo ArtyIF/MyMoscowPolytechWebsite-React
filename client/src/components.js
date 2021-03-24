@@ -28,7 +28,7 @@ function InternalApp() {
                     <CSSTransition key={location.key} classNames="fade" timeout={400}>
                         <Switch location={location}>
                             <Route exact path="/" component={YearsView}/>
-                            <Route path="/:year" component={DisciplinesView}/>
+                            <Route exact path="/:year" component={DisciplinesView}/>
                             <Route render={Error404}/>
                         </Switch>
                     </CSSTransition>
@@ -58,7 +58,7 @@ class StuffList extends Component {
         let res;
         if (!this.error) {
             res = this.state.response.map((value) => (
-                <p>{<Link to={this.props.pageURLPrefix + value.id}>{value.humanName}</Link>}</p>
+                <p>{<Link to={this.props.pageURLPrefix + value}><HumanName apiURL={this.props.humanNameURLPrefix + value} /></Link>}</p>
             ));
         } else {
             res = (<p>Ошибка загрузки: {this.state.error}</p>)
@@ -96,7 +96,7 @@ function YearsView() {
     return (
         <div>
             <h2>Выберите год</h2>
-            <StuffList apiURL="/api/years" pageURLPrefix="/y" />
+            <StuffList apiURL="/api/years" pageURLPrefix="/y" humanNameURLPrefix='/api/humanname?year=' />
         </div>
     );
 }
@@ -108,7 +108,7 @@ function DisciplinesView() {
         <div>
             <BreadcrumbsItem to={"/" + year}><HumanName apiURL={'/api/humanname?year=' + yearID} /></BreadcrumbsItem>
             <h2>Выберите предмет</h2>
-            <StuffList apiURL={'/api/disciplines?year=' + yearID} pageURLPrefix={"/" + year + "/d_"} />
+            <StuffList apiURL={'/api/disciplines?year=' + yearID} pageURLPrefix={"/" + year + "/d_"} humanNameURLPrefix={'/api/humanname?year=' + yearID + '&discipline='} />
         </div>
     );
 }

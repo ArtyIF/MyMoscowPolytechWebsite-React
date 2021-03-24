@@ -5,30 +5,34 @@ var fs = require('fs');
 
 const getDirectories = source => fs.readdirSync(source, { withFileTypes: true }).filter(dirent => dirent.isDirectory()).map(dirent => dirent.name);
 
-router.get('/years', function(req, res, next) {
-    let yearIDs = getDirectories(path.join(__dirname, '..', 'public', 'labs'));
-    let yearsDictList = [];
-    yearIDs.map((value) => {
-        let humanName = value + "-й год";
-        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', value, 'humanname'))) {
-            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', value, 'humanname'), 'utf8');
-        }
-        yearsDictList.push({id: value, humanName: humanName});
-    });
-    res.json(yearsDictList);
-});
-
 router.get('/humanname', function (req, res, next) {
-    if (!req.query.year && !req.query.discipline && !req.query.lab) {
+    let humanName;
+    if (req.query.year && req.query.discipline && req.query.lab) {
+        humanName = "Лабораторная работа " + req.query.lab;
+        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, req.query.discipline, req.query.lab, 'humanname'))) {
+            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, req.query.discipline, req.query.lab, 'humanname'), 'utf8');
+        }
+    } else if (req.query.year && req.query.discipline) {
+        humanName = "Нет humanname! (ID: " + req.query.discipline + ")";
+        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, req.query.discipline, 'humanname'))) {
+            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, req.query.discipline, 'humanname'), 'utf8');
+        }
+    } else if (req.query.year) {
+        humanName = req.query.year + "-й год";
+        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, 'humanname'))) {
+            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, 'humanname'), 'utf8');
+        }
+    } else {
         res.status(400).send('Неверный запрос');
         return;
     }
-    let humanName = req.query.year + "-й год";
-    if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, 'humanname'))) {
-        humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, 'humanname'), 'utf8');
-    }
     res.send(humanName);
-})
+});
+
+router.get('/years', function(req, res, next) {
+    let yearIDs = getDirectories(path.join(__dirname, '..', 'public', 'labs'));
+    res.json(yearIDs);
+});
 
 router.get('/disciplines', function(req, res, next) {
     if (!req.query.year) {
@@ -36,15 +40,7 @@ router.get('/disciplines', function(req, res, next) {
         return;
     }
     let disciplineIDs = getDirectories(path.join(__dirname, '..', 'public', 'labs', req.query.year));
-    let disciplinesDictList = [];
-    disciplineIDs.map((value) => {
-        let humanName = "Нет humanname! (ID: " + value + ")";
-        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, value, 'humanname'))) {
-            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, value, 'humanname'), 'utf8');
-        }
-        disciplinesDictList.push({id: value, humanName: humanName});
-    });
-    res.json(disciplinesDictList);
+    res.json(disciplineIDs);
 });
 
 function naturalCompare(a, b) {
@@ -70,15 +66,7 @@ router.get('/labs', function(req, res, next) {
     }
     let labIDs = getDirectories(path.join(__dirname, '..', 'public', 'labs', req.query.year, req.query.discipline));
     labIDs.sort(naturalCompare);
-    let labsDictList = [];
-    labIDs.map((value) => {
-        let humanName = "Лабораторная работа " + value;
-        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, req.query.discipline, value, 'humanname'))) {
-            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, req.query.discipline, value, 'humanname'), 'utf8');
-        }
-        labsDictList.push({id: value, humanName: humanName});
-    });
-    res.json(labsDictList);
+    res.json(labIDs);
 });
 
 module.exports = router;
