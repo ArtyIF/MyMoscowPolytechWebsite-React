@@ -9,7 +9,10 @@ router.get('/disciplines', function(req, res, next) {
     let disciplineIDs = getDirectories(path.join(__dirname, '..', 'public', 'labs'));
     let disciplinesDictList = [];
     disciplineIDs.map((value) => {
-        let humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', value, 'humanname'), 'utf8');
+        let humanName = "Нет humanname! (ID: " + value + ")";
+        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', value, 'humanname'))) {
+            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', value, 'humanname'), 'utf8');
+        }
         disciplinesDictList.push({'id': value, 'name': humanName})
     });
     res.json(disciplinesDictList);
