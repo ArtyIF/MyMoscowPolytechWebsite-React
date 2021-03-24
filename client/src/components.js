@@ -14,7 +14,7 @@ function InternalApp() {
     let location = useLocation();
 
     return (
-        <div className="page">
+        <div>
             <header>
                 <h1>Сайт Артёма Фомина</h1>
                 <BreadcrumbsItem to="/">{PageNames.Home}</BreadcrumbsItem>
@@ -43,7 +43,167 @@ function Home() {
     return (
         <div>
             <p>test page 1 contents</p>
-            <Link to="/test">test page 2 link</Link>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
+            <p>test page 1 contents</p>
+            <p><Link to="/test">test page 2 link</Link></p>
         </div>
     );
 }
