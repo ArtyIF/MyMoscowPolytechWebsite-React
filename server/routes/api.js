@@ -20,7 +20,8 @@ router.get('/years', function(req, res, next) {
 
 router.get('/disciplines', function(req, res, next) {
     if (!req.query.year) {
-        res.status(400).send("400");
+        res.status(400).send('400');
+        return;
     }
     let disciplineIDs = getDirectories(path.join(__dirname, '..', 'public', 'labs', req.query.year));
     let disciplinesDictList = [];
@@ -52,7 +53,8 @@ function naturalCompare(a, b) {
 
 router.get('/labs', function(req, res, next) {
     if (!req.query.year || !req.query.discipline) {
-        res.status(400).send("400");
+        res.status(400).send('400');
+        return;
     }
     let labIDs = getDirectories(path.join(__dirname, '..', 'public', 'labs', req.query.year, req.query.discipline));
     labIDs.sort(naturalCompare);
