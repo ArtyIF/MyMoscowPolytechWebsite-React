@@ -48,27 +48,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 main {
     flex-grow: 1;
+    padding: 8px;
     display: flex;
     flex-flow: row;
-}
-
-.content {
-    padding: 8px;
-    flex-grow: 1;
-}
-
-.sidebar {
-    background-color: #1B5E20;
-    width: 256px;
-}
-
-.sidebar-header {
-    padding: 4px 8px;
-    background-color: #00C853;
-    font-weight: bold;
-}
-
-.sidebar-content {
-    padding: 4px 8px 16px 8px;
-    color: white;
 }

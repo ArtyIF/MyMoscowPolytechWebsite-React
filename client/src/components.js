@@ -25,21 +25,15 @@ function InternalApp() {
                 />
             </header>
             <main>
-                <div className="sidebar">
-                    <div className="sidebar-header">Заголовок</div>
-                    <div className="sidebar-content">Элементы</div>
-                </div>
-                <div className="content">
-                    <TransitionGroup>
-                        <CSSTransition key={location.key} classNames="fade" timeout={400}>
-                            <Switch location={location}>
-                                <Route exact path="/" component={Home}/>
-                                <Route path="/test" component={Test}/>
-                                <Route render={Error404}/>
-                            </Switch>
-                        </CSSTransition>
-                    </TransitionGroup>
-                </div>
+                <TransitionGroup>
+                    <CSSTransition key={location.key} classNames="fade" timeout={400}>
+                        <Switch location={location}>
+                            <Route exact path="/" component={Home}/>
+                            <Route path="/test" component={Test}/>
+                            <Route render={Error404}/>
+                        </Switch>
+                    </CSSTransition>
+                </TransitionGroup>
             </main>
         </div>
     );
