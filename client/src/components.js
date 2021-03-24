@@ -67,6 +67,31 @@ class StuffList extends Component {
     }
 }
 
+class HumanName extends Component {
+    state = {
+        error: null,
+        response: ""
+    }
+
+    componentDidMount() {
+        fetch(this.props.apiURL).then((res) => res.text())
+            .then((res) => {
+                this.setState({response: res});
+            })
+            .then((err) => {
+                this.setState({error: err});
+            })
+    }
+    
+    render() {
+        if (!this.error) {
+            return (<span>{this.state.response}</span>);
+        } else {
+            return (<span>Ошибка загрузки: {this.state.error}</span>);
+        }
+    }
+}
+
 function YearsView() {
     return (
         <div>
@@ -81,7 +106,7 @@ function DisciplinesView() {
     let yearID = year.substring(1);
     return (
         <div>
-            <BreadcrumbsItem to={"/" + year}>insert humanname here</BreadcrumbsItem>
+            <BreadcrumbsItem to={"/" + year}><HumanName apiURL={'/api/humanname?year=' + yearID} /></BreadcrumbsItem>
             <h2>Выберите предмет</h2>
             <StuffList apiURL={'/api/disciplines?year=' + yearID} pageURLPrefix={"/" + year + "/d_"} />
         </div>

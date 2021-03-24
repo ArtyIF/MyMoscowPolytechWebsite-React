@@ -18,6 +18,18 @@ router.get('/years', function(req, res, next) {
     res.json(yearsDictList);
 });
 
+router.get('/humanname', function (req, res, next) {
+    if (!req.query.year && !req.query.discipline && !req.query.lab) {
+        res.status(400).send('Неверный запрос');
+        return;
+    }
+    let humanName = req.query.year + "-й год";
+    if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, 'humanname'))) {
+        humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, 'humanname'), 'utf8');
+    }
+    res.send(humanName);
+})
+
 router.get('/disciplines', function(req, res, next) {
     if (!req.query.year) {
         res.status(400).send('400');
