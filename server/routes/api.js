@@ -5,6 +5,19 @@ var fs = require('fs');
 
 const getDirectories = source => fs.readdirSync(source, { withFileTypes: true }).filter(dirent => dirent.isDirectory()).map(dirent => dirent.name);
 
+router.get('/years', function(req, res, next) {
+    let yearIDs = getDirectories(path.join(__dirname, '..', 'public', 'labs'));
+    let yearsDictList = [];
+    yearIDs.map((value) => {
+        let humanName = value + "-й год";
+        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', value, 'humanname'))) {
+            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', value, 'humanname'), 'utf8');
+        }
+        yearsDictList.push({'id': value, 'humanName': humanName})
+    });
+    res.json(yearsDictList);
+});
+
 router.get('/disciplines', function(req, res, next) {
     if (!req.query.year) {
         res.status(400).send("400");
@@ -16,7 +29,7 @@ router.get('/disciplines', function(req, res, next) {
         if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, value, 'humanname'))) {
             humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, value, 'humanname'), 'utf8');
         }
-        disciplinesDictList.push({'id': value, 'name': humanName})
+        disciplinesDictList.push({'id': value, 'humanName': humanName})
     });
     res.json(disciplinesDictList);
 });
@@ -49,7 +62,7 @@ router.get('/labs', function(req, res, next) {
         if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, req.query.discipline, value, 'humanname'))) {
             humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, req.query.discipline, value, 'humanname'), 'utf8');
         }
-        labsDictList.push({'id': value, 'name': humanName});
+        labsDictList.push({'id': value, 'humanName': humanName});
     });
     res.json(labsDictList);
 });
