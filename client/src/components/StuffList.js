@@ -22,7 +22,9 @@ class StuffList extends Component {
         let res;
         if (!this.error) {
             res = this.state.response.map((value) => (
-                <p>{<Link to={this.props.pageURLPrefix + value}><HumanName apiURL={this.props.humanNameURLPrefix + value} /></Link>}</p>
+                <div className='link'>
+                    {<Link to={this.props.pageURLPrefix + value}><HumanName apiURL={this.props.humanNameURLPrefix + value} /></Link>}
+                </div>
             ));
         } else {
             res = (<p>Ошибка загрузки: {this.state.error}</p>)
