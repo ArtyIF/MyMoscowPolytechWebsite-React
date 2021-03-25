@@ -18,7 +18,7 @@ router.get('/humanname', function (req, res, next) {
             humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, req.query.discipline, 'humanname'), 'utf8');
         }
     } else if (req.query.year) {
-        humanName = req.query.year + '-й год';
+        humanName = req.query.year + '-й курс';
         if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, 'humanname'))) {
             humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, 'humanname'), 'utf8');
         }

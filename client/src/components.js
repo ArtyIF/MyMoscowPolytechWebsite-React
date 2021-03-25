@@ -95,7 +95,7 @@ class HumanName extends Component {
 function YearsView() {
     return (
         <div>
-            <h2>Выберите год</h2>
+            <h2>Выберите курс</h2>
             <StuffList apiURL='/api/years' pageURLPrefix='/y_' humanNameURLPrefix='/api/humanname?year=' />
         </div>
     );
