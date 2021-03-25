@@ -21,7 +21,7 @@ function App() {
             </header>
             <main>
                 <TransitionGroup>
-                    <CSSTransition key={location.key} classNames='fade' timeout={400}>
+                    <CSSTransition key={location.key} classNames='fade' timeout={100}>
                         <Switch location={location}>
                             <Route exact path='/' component={YearsView}/>
                             <Route path='/:year' component={DisciplinesView}/>

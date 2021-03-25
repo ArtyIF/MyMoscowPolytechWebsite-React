@@ -2,6 +2,7 @@
 
 $main-color: #00E676;
 $main-color-fg: black;
+$transition-speed: 100ms;
 
 .fade {
     &-enter {
@@ -11,7 +12,7 @@ $main-color-fg: black;
         &-active {
             opacity: 1;
             transform: translateX(0px);
-            transition: opacity 200ms, transform 200ms;
+            transition: opacity $transition-speed, transform $transition-speed;
         }
     }
 
@@ -22,7 +23,7 @@ $main-color-fg: black;
         &-active {
             opacity: 0;
             transform: translateX(-8px);
-            transition: opacity 200ms, transform 200ms;
+            transition: opacity $transition-speed, transform $transition-speed;
         }
     }
 }
