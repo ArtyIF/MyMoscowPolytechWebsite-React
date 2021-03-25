@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class HumanName extends Component {
     state = {
         error: null,
-        response: ''
+        response: '...'
     }
 
     componentDidMount() {

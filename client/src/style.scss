@@ -30,8 +30,15 @@ body {
     margin: 0;
 }
 
-header {
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0 0 0.25em 0;
+}
+
+h1, h2, h3, h4, h5, h6, header {
     font-family: 'PT Serif', serif;
+}
+
+header {
     background-color: $main-color;
     color: $main-color-fg;
     padding: 8px;
@@ -40,10 +47,6 @@ header {
     & a {
         color: $main-color-fg;
     }
-}
-
-h1, h2, h3, h4, h5, h6, p {
-    margin: 0 0 0.25em 0;
 }
 
 main {
