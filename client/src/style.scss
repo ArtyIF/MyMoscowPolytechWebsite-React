@@ -58,19 +58,22 @@ main {
 .stuff-list {
     display: flex;
     flex-wrap: wrap;
-    padding-top: 16px;
+    padding-top: 8px;
     gap: 8px;
-}
 
-.stuff-list a {
-    width: 100vw;
-    padding: 8px 16px;
-    margin-top: 16px;
-    box-shadow: 0px 4px 8px #00000080;
-    color: black;
-    text-decoration: none;
-
-    &:hover {
-        background-color: color.scale($main-color, $lightness: 90%);
+    & a {
+        width: 100vw;
+        padding: 8px 16px;
+        box-shadow: 0px 4px 8px #00000080;
+        color: black;
+        text-decoration: none;
+    
+        &:hover {
+            background-color: color.scale($main-color, $lightness: 90%);
+        }
+    
+        &:active {
+            background-color: color.scale($main-color, $lightness: 70%);
+        }
     }
 }
