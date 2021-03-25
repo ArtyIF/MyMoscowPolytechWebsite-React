@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 $main-color: #00E676;
 $main-color-fg: black;
 
@@ -42,7 +44,7 @@ header {
     background-color: $main-color;
     color: $main-color-fg;
     padding: 8px;
-    box-shadow: 0px 4px 8px #00000040;
+    box-shadow: 0px 4px 8px #00000080;
 
     & a {
         color: $main-color-fg;
@@ -51,4 +53,24 @@ header {
 
 main {
     padding: 8px;
+}
+
+.stuff-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 16px;
+    gap: 8px;
+}
+
+.stuff-list a {
+    width: 100vw;
+    padding: 8px 16px;
+    margin-top: 16px;
+    box-shadow: 0px 4px 8px #00000080;
+    color: black;
+    text-decoration: none;
+
+    &:hover {
+        background-color: color.scale($main-color, $lightness: 90%);
+    }
 }

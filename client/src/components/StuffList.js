@@ -27,7 +27,7 @@ class StuffList extends Component {
         } else {
             res = (<p>Ошибка загрузки: {this.state.error}</p>)
         }
-        return (<div>{res}</div>);
+        return (<div className='stuff-list'>{res}</div>);
     }
 }
 
