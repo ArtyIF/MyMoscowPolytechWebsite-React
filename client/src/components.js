@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Breadcrumbs, BreadcrumbsItem } from 'react-breadcrumbs-dynamic';
 import { Route, Switch, Link, NavLink, useLocation, useRouteMatch } from 'react-router-dom';
-import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 function App() {
     return (
@@ -16,7 +16,7 @@ function InternalApp() {
         <div>
             <header>
                 <h1>Сайт Артёма Фомина</h1>
-                <BreadcrumbsItem to="/">Лабораторные работы</BreadcrumbsItem>
+                <BreadcrumbsItem to='/'>Лабораторные работы</BreadcrumbsItem>
                 <Breadcrumbs
                     separator={<span> &gt; </span>}
                     item={NavLink}
@@ -25,10 +25,10 @@ function InternalApp() {
             </header>
             <main>
                 <TransitionGroup>
-                    <CSSTransition key={location.key} classNames="fade" timeout={400}>
+                    <CSSTransition key={location.key} classNames='fade' timeout={400}>
                         <Switch location={location}>
-                            <Route exact path="/" component={YearsView}/>
-                            <Route path="/:year" component={DisciplinesView}/>
+                            <Route exact path='/' component={YearsView}/>
+                            <Route path='/:year' component={DisciplinesView}/>
                             <Route render={Error404}/>
                         </Switch>
                     </CSSTransition>
@@ -70,7 +70,7 @@ class StuffList extends Component {
 class HumanName extends Component {
     state = {
         error: null,
-        response: ""
+        response: ''
     }
 
     componentDidMount() {
@@ -96,7 +96,7 @@ function YearsView() {
     return (
         <div>
             <h2>Выберите год</h2>
-            <StuffList apiURL="/api/years" pageURLPrefix="/y_" humanNameURLPrefix='/api/humanname?year=' />
+            <StuffList apiURL='/api/years' pageURLPrefix='/y_' humanNameURLPrefix='/api/humanname?year=' />
         </div>
     );
 }
@@ -106,9 +106,9 @@ function DisciplinesView() {
     let yearID = year.substring(2);
     return (
         <div>
-            <BreadcrumbsItem to={"/" + year}><HumanName apiURL={'/api/humanname?year=' + yearID} /></BreadcrumbsItem>
+            <BreadcrumbsItem to={'/' + year}><HumanName apiURL={'/api/humanname?year=' + yearID} /></BreadcrumbsItem>
             <Switch>
-                <Route path="/:year/:discipline" component={LabsView}/>
+                <Route path='/:year/:discipline' component={LabsView}/>
                 <Route component={RealDisciplinesView} />
             </Switch>
         </div>
@@ -121,7 +121,7 @@ function RealDisciplinesView() {
     return (
         <div>
             <h2>Выберите предмет</h2>
-            <StuffList apiURL={'/api/disciplines?year=' + yearID} pageURLPrefix={"/" + year + "/d_"} humanNameURLPrefix={'/api/humanname?year=' + yearID + '&discipline='} />
+            <StuffList apiURL={'/api/disciplines?year=' + yearID} pageURLPrefix={'/' + year + '/d_'} humanNameURLPrefix={'/api/humanname?year=' + yearID + '&discipline='} />
         </div>
     );
 }
@@ -132,9 +132,9 @@ function LabsView() {
     let disciplineID = discipline.substring(2);
     return (
         <div>
-            <BreadcrumbsItem to={"/" + year + '/' + discipline}><HumanName apiURL={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID} /></BreadcrumbsItem>
+            <BreadcrumbsItem to={'/' + year + '/' + discipline}><HumanName apiURL={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID} /></BreadcrumbsItem>
             <h2>Выберите работу</h2>
-            <StuffList apiURL={'/api/labs?year=' + yearID + '&discipline=' + disciplineID} pageURLPrefix={"/" + year + "/" + discipline + "/l_"} humanNameURLPrefix={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID + '&lab='} />
+            <StuffList apiURL={'/api/labs?year=' + yearID + '&discipline=' + disciplineID} pageURLPrefix={'/' + year + '/' + discipline + '/l_'} humanNameURLPrefix={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID + '&lab='} />
         </div>
     );
 }
@@ -142,7 +142,7 @@ function LabsView() {
 function Error404() {
     return (
         <div>
-            <BreadcrumbsItem to="/404">Ошибка 404</BreadcrumbsItem>
+            <BreadcrumbsItem to='/404'>Ошибка 404</BreadcrumbsItem>
             <p>Страница не найдена!</p>
         </div>
     );

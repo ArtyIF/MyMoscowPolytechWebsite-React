@@ -8,17 +8,17 @@ const getDirectories = source => fs.readdirSync(source, { withFileTypes: true })
 router.get('/humanname', function (req, res, next) {
     let humanName;
     if (req.query.year && req.query.discipline && req.query.lab) {
-        humanName = "Лабораторная работа " + req.query.lab;
+        humanName = 'Лабораторная работа ' + req.query.lab;
         if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, req.query.discipline, req.query.lab, 'humanname'))) {
             humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, req.query.discipline, req.query.lab, 'humanname'), 'utf8');
         }
     } else if (req.query.year && req.query.discipline) {
-        humanName = "Нет humanname! (ID: " + req.query.discipline + ")";
+        humanName = 'Нет humanname! (ID: ' + req.query.discipline + ')';
         if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, req.query.discipline, 'humanname'))) {
             humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, req.query.discipline, 'humanname'), 'utf8');
         }
     } else if (req.query.year) {
-        humanName = req.query.year + "-й год";
+        humanName = req.query.year + '-й год';
         if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, 'humanname'))) {
             humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, 'humanname'), 'utf8');
         }
@@ -46,8 +46,8 @@ router.get('/disciplines', function(req, res, next) {
 function naturalCompare(a, b) {
     var ax = [], bx = [];
 
-    a.replace(/(\d+)|(\D+)/g, function(_, $1, $2) { ax.push([$1 || Infinity, $2 || ""]) });
-    b.replace(/(\d+)|(\D+)/g, function(_, $1, $2) { bx.push([$1 || Infinity, $2 || ""]) });
+    a.replace(/(\d+)|(\D+)/g, function(_, $1, $2) { ax.push([$1 || Infinity, $2 || '']) });
+    b.replace(/(\d+)|(\D+)/g, function(_, $1, $2) { bx.push([$1 || Infinity, $2 || '']) });
     
     while(ax.length && bx.length) {
         var an = ax.shift();
