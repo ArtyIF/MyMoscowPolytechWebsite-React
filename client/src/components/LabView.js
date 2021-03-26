@@ -11,6 +11,7 @@ function LabView() {
     return (
         <div>
             <BreadcrumbsItem to={'/' + year + '/' + discipline + '/' + year}><HumanName apiURL={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID + '&lab=' + labID} /></BreadcrumbsItem>
+            <p>Сделать страницу через iframe. Сверху кнопки аля браузерские + на просмотр кода</p>
         </div>
     );
 }
