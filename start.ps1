@@ -1,5 +1,5 @@
 cd server
-Start-Process npm start
+Start-Process nodemon
 cd ..
 
 cd client
