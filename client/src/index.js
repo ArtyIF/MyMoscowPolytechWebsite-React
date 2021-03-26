@@ -3,7 +3,7 @@ import { BreadcrumbsProvider } from 'react-breadcrumbs-dynamic';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import './style.scss'
+import './style.scss';
 
 const rootElement = document.getElementById('root');
 

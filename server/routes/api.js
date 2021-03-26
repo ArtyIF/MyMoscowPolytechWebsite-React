@@ -29,11 +29,11 @@ function getHumanName(year, discipline, lab) {
     return humanName;
 }
 
-router.get('/humanname', function (req, res, next) {
+router.get('/humanname', function (req, res) {
     res.send(getHumanName(req.query.year, req.query.discipline, req.query.lab));
 });
 
-router.get('/years', function(req, res, next) {
+router.get('/years', function(req, res) {
     let yearIDs = getDirectories(path.join(__dirname, '..', 'public', 'labfiles'));
     let yearIDsWithHumanNames = {ids: yearIDs, humanNames: []};
     yearIDs.forEach(year => {
@@ -42,7 +42,7 @@ router.get('/years', function(req, res, next) {
     res.json(yearIDsWithHumanNames);
 });
 
-router.get('/disciplines', function(req, res, next) {
+router.get('/disciplines', function(req, res) {
     if (!req.query.year) {
         res.status(400).send('Неверный запрос');
         return;
@@ -58,8 +58,8 @@ router.get('/disciplines', function(req, res, next) {
 function naturalCompare(a, b) {
     var ax = [], bx = [];
 
-    a.replace(/(\d+)|(\D+)/g, function(_, $1, $2) { ax.push([$1 || Infinity, $2 || '']) });
-    b.replace(/(\d+)|(\D+)/g, function(_, $1, $2) { bx.push([$1 || Infinity, $2 || '']) });
+    a.replace(/(\d+)|(\D+)/g, function(_, $1, $2) { ax.push([$1 || Infinity, $2 || '']); });
+    b.replace(/(\d+)|(\D+)/g, function(_, $1, $2) { bx.push([$1 || Infinity, $2 || '']); });
     
     while(ax.length && bx.length) {
         var an = ax.shift();
@@ -71,7 +71,7 @@ function naturalCompare(a, b) {
     return ax.length - bx.length;
 }
 
-router.get('/labs', function(req, res, next) {
+router.get('/labs', function(req, res) {
     if (!req.query.year || !req.query.discipline) {
         res.status(400).send('Неверный запрос');
         return;
@@ -85,7 +85,7 @@ router.get('/labs', function(req, res, next) {
     res.json(labIDsWithHumanNames);
 });
 
-router.get('/lab', function(req, res, next) {
+router.get('/lab', function(req, res) {
     if (!req.query.year || !req.query.discipline || !req.query.lab) {
         res.status(400).send('Неверный запрос');
         return;

@@ -17,7 +17,7 @@ function LabsView() {
                 <Route component={RealLabsView} />
             </Switch>
         </div>
-    )
+    );
 }
 
 function RealLabsView() {

@@ -16,7 +16,7 @@ function DisciplinesView() {
                 <Route component={RealDisciplinesView} />
             </Switch>
         </div>
-    )
+    );
 }
 
 function RealDisciplinesView() {

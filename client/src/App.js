@@ -9,7 +9,7 @@ function App() {
     let location = useLocation();
 
     return (
-        <div class='root-flex'>
+        <div className='root-flex'>
             <header>
                 <h1>Сайт Артёма Фомина</h1>
                 <BreadcrumbsItem to='/labs'>Лабораторные работы</BreadcrumbsItem>
