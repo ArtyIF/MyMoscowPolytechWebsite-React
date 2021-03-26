@@ -33,6 +33,9 @@
         "semi": [
             "error",
             "always"
+        ],
+        "react/prop-types": [
+            0 // more trouble than it's worth
         ]
     }
 }

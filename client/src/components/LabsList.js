@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class LabsList extends Component {
-    state = {
-        loaded: false,
-        error: null,
-        response: []
+    constructor() {
+        super();
+        this.state = {
+            loaded: false,
+            error: null,
+            response: []
+        };
     }
 
     componentDidMount() {
@@ -17,7 +20,7 @@ class LabsList extends Component {
             .then((err) => {
                 this.setState({error: err});
                 this.setState({loaded: true});
-            })
+            });
     }
     
     render() {
@@ -25,7 +28,7 @@ class LabsList extends Component {
         if (this.state.loaded) {
             if (!this.state.error) {
                 res = this.state.response.ids.map((value, i) => (
-                    <div className='link'>
+                    <div className='link' key={value + '_' + i}>
                         {<Link to={this.props.pageURLPrefix + value}>{this.state.response.humanNames[i]}</Link>}
                     </div>
                 ));

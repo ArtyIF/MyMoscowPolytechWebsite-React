@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 
 class HumanName extends Component {
-    state = {
-        error: null,
-        response: this.props.apiURL
+    constructor() {
+        super();
+        this.state = {
+            error: null,
+            response: this.props.apiURL
+        };
     }
+    
 
     componentDidMount() {
         fetch(this.props.apiURL).then((res) => res.text())
@@ -13,7 +17,7 @@ class HumanName extends Component {
             })
             .then((err) => {
                 this.setState({error: err});
-            })
+            });
     }
     
     render() {

@@ -4,10 +4,13 @@ import { withRouter } from 'react-router-dom';
 import HumanName from './HumanName';
 
 class LabPageView extends Component {
-    state = {
-        loaded: false,
-        error: null,
-        response: "Загрузка..."
+    constructor() {
+        super();
+        this.state = {
+            loaded: false,
+            error: null,
+            response: 'Загрузка...'
+        };
     }
 
     componentDidMount() {
@@ -25,12 +28,12 @@ class LabPageView extends Component {
                     }).then((err) => {
                         this.setState({error: err});
                         this.setState({loaded: true});
-                    })
+                    });
             })
             .then((err) => {
                 this.setState({error: err});
                 this.setState({loaded: true});
-            })
+            });
     }
 
     render() {
@@ -43,7 +46,7 @@ class LabPageView extends Component {
         return (
             <div className='lab-view-main height-100'>
                 <BreadcrumbsItem to={'/labs/' + year + '/' + discipline + '/' + year}><HumanName apiURL={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID + '&lab=' + labID} /></BreadcrumbsItem>
-                <iframe srcdoc={this.state.response} />
+                <iframe srcDoc={this.state.response} />
             </div>
         );
     }
