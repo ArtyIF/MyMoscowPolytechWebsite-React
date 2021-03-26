@@ -29,7 +29,7 @@ class LabsList extends Component {
             if (!this.state.error) {
                 res = this.state.response.ids.map((value, i) => (
                     <div className='link' key={value + '_' + i}>
-                        {<Link to={this.props.pageURLPrefix + value}>{this.state.response.humanNames[i]}</Link>}
+                        <Link to={this.props.pageURLPrefix + value}>{this.state.response.humanNames[i]}</Link>
                     </div>
                 ));
             } else {

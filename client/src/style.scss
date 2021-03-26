@@ -15,6 +15,9 @@ $transition-speed: 100ms;
         opacity: 0;
         transform: translateX(8px);
         position: absolute;
+        & iframe {
+            display: none;
+        }
         &-active {
             opacity: 1;
             transform: translateX(0px);
@@ -31,6 +34,9 @@ $transition-speed: 100ms;
             transform: translateX(-8px);
             transition: opacity $transition-speed, transform $transition-speed;
         }
+        & iframe {
+            display: none;
+        }
     }
 }
 
@@ -39,6 +45,10 @@ body {
     color: $bg-color-fg;
     font-family: 'PT Sans', sans-serif;
     margin: 0;
+}
+
+html {
+    overflow: hidden;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -73,6 +83,7 @@ main {
     flex-wrap: wrap;
     gap: 8px;
     align-content: space-between;
+    padding-bottom: 8px;
 
     & .link {
         background-color: $card-color;

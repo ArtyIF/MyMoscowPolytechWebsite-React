@@ -5,7 +5,7 @@ class HumanName extends Component {
         super();
         this.state = {
             error: null,
-            response: this.props.apiURL
+            response: 'Загрузка...'
         };
     }
     
