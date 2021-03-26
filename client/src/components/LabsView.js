@@ -11,7 +11,7 @@ function LabsView() {
     let disciplineID = discipline.substring(2);
     return (
         <div>
-            <BreadcrumbsItem to={'/' + year + '/' + discipline}><HumanName apiURL={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID} /></BreadcrumbsItem>
+            <BreadcrumbsItem to={'/labs/' + year + '/' + discipline}><HumanName apiURL={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID} /></BreadcrumbsItem>
             <Switch>
                 <Route path='/labs/:year/:discipline/:lab' component={LabView}/>
                 <Route component={RealLabsView} />

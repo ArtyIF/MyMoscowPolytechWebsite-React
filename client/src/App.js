@@ -12,7 +12,7 @@ function App() {
         <div>
             <header>
                 <h1>Сайт Артёма Фомина</h1>
-                <BreadcrumbsItem to='/'>Лабораторные работы</BreadcrumbsItem>
+                <BreadcrumbsItem to='/labs'>Лабораторные работы</BreadcrumbsItem>
                 <Breadcrumbs
                     separator={<span> &gt; </span>}
                     item={NavLink}

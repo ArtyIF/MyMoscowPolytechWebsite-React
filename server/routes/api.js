@@ -4,6 +4,7 @@ var path = require('path');
 var fs = require('fs');
 
 const getDirectories = source => fs.readdirSync(source, { withFileTypes: true }).filter(dirent => dirent.isDirectory()).map(dirent => dirent.name);
+const getFiles = source => fs.readdirSync(source, { withFileTypes: true }).filter(dirent => dirent.isFile()).map(dirent => dirent.name);
 
 function getHumanName(year, discipline, lab) {
     let humanName;
@@ -89,7 +90,7 @@ router.get('/lab', function(req, res, next) {
         res.status(400).send('Неверный запрос');
         return;
     }
-    let labPageIDs = getDirectories(path.join(__dirname, '..', 'public', 'labfiles', req.query.year, req.query.discipline, req.query.lab));
+    let labPageIDs = getFiles(path.join(__dirname, '..', 'public', 'labfiles', req.query.year, req.query.discipline, req.query.lab));
     labPageIDs.sort(naturalCompare);
     res.json(labPageIDs);
 });

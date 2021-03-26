@@ -10,7 +10,7 @@ function DisciplinesView() {
     let yearID = year.substring(2);
     return (
         <div>
-            <BreadcrumbsItem to={'/' + year}><HumanName apiURL={'/api/humanname?year=' + yearID} /></BreadcrumbsItem>
+            <BreadcrumbsItem to={'/labs/' + year}><HumanName apiURL={'/api/humanname?year=' + yearID} /></BreadcrumbsItem>
             <Switch>
                 <Route path='/labs/:year/:discipline' component={LabsView}/>
                 <Route component={RealDisciplinesView} />

@@ -7,7 +7,7 @@ class LabView extends Component {
     state = {
         loaded: false,
         error: null,
-        response: []
+        response: "Загрузка..."
     }
 
     componentDidMount() {
@@ -18,8 +18,14 @@ class LabView extends Component {
         let labID = lab.substring(2);
         fetch('/api/lab?year=' + yearID + '&discipline=' + disciplineID + '&lab=' + labID).then((res) => res.json())
             .then((res) => {
-                this.setState({response: res});
-                this.setState({loaded: true});
+                fetch('/labfiles/' + yearID + '/' + disciplineID + '/' + labID + '/' + res[0]).then((resPage) => resPage.text()).
+                    then((resPage) => {
+                        this.setState({response: resPage});
+                        this.setState({loaded: true});
+                    }).then((err) => {
+                        this.setState({error: err});
+                        this.setState({loaded: true});
+                    })
             })
             .then((err) => {
                 this.setState({error: err});
@@ -36,9 +42,9 @@ class LabView extends Component {
 
         return (
             <div className='lab-view-main'>
-                <BreadcrumbsItem to={'/' + year + '/' + discipline + '/' + year}><HumanName apiURL={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID + '&lab=' + labID} /></BreadcrumbsItem>
+                <BreadcrumbsItem to={'/labs/' + year + '/' + discipline + '/' + year}><HumanName apiURL={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID + '&lab=' + labID} /></BreadcrumbsItem>
                 <p>Сделать страницу через iframe. Сверху кнопки для просмотра кода и скроллинга страниц</p>
-                <iframe src={'/labfiles/' + yearID + '/' + disciplineID + '/' + labID + '/' + this.state.response[0] } width='1000' height='500' />
+                <iframe srcdoc={this.state.response} />
             </div>
         );
     }
