@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import HumanName from './HumanName';
 
-class StuffList extends Component {
+class LabsList extends Component {
     state = {
         loaded: false,
         error: null,
@@ -25,19 +24,19 @@ class StuffList extends Component {
         let res;
         if (this.state.loaded) {
             if (!this.state.error) {
-                res = this.state.response.map((value) => (
+                res = this.state.response.ids.map((value, i) => (
                     <div className='link'>
-                        {<Link to={this.props.pageURLPrefix + value}><HumanName apiURL={this.props.humanNameURLPrefix + value} /></Link>}
+                        {<Link to={this.props.pageURLPrefix + value}>{this.state.response.humanNames[i]}</Link>}
                     </div>
                 ));
             } else {
                 res = (<p>Ошибка загрузки: {this.state.error}</p>);
             }
         } else {
-            res = (<p>Загрузка...</p>);
+            return (<div />);
         }
         return (<div className='stuff-list'>{res}</div>);
     }
 }
 
-export default StuffList;
+export default LabsList;

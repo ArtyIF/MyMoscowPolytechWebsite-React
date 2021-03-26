@@ -5,33 +5,40 @@ var fs = require('fs');
 
 const getDirectories = source => fs.readdirSync(source, { withFileTypes: true }).filter(dirent => dirent.isDirectory()).map(dirent => dirent.name);
 
-router.get('/humanname', function (req, res, next) {
+function getHumanName(year, discipline, lab) {
     let humanName;
-    if (req.query.year && req.query.discipline && req.query.lab) {
-        humanName = 'Лабораторная работа ' + req.query.lab;
-        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, req.query.discipline, req.query.lab, 'humanname'))) {
-            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, req.query.discipline, req.query.lab, 'humanname'), 'utf8');
+    if (year && discipline && lab) {
+        humanName = 'Лабораторная работа ' + lab;
+        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', year, discipline, lab, 'humanname'))) {
+            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', year, discipline, lab, 'humanname'), 'utf8');
         }
-    } else if (req.query.year && req.query.discipline) {
-        humanName = 'Нет humanname! (ID: ' + req.query.discipline + ')';
-        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, req.query.discipline, 'humanname'))) {
-            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, req.query.discipline, 'humanname'), 'utf8');
+    } else if (year && discipline) {
+        humanName = 'Нет humanname! (ID: ' + discipline + ')';
+        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', year, discipline, 'humanname'))) {
+            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', year, discipline, 'humanname'), 'utf8');
         }
-    } else if (req.query.year) {
-        humanName = req.query.year + '-й курс';
-        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, 'humanname'))) {
-            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', req.query.year, 'humanname'), 'utf8');
+    } else if (year) {
+        humanName = year + '-й курс';
+        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', year, 'humanname'))) {
+            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', year, 'humanname'), 'utf8');
         }
     } else {
-        res.status(400).send('Неверный запрос');
-        return;
+        return 'Неверный запрос';
     }
-    res.send(humanName);
+    return humanName;
+}
+
+router.get('/humanname', function (req, res, next) {
+    res.send(getHumanName(req.query.year, req.query.discipline, req.query.lab));
 });
 
 router.get('/years', function(req, res, next) {
     let yearIDs = getDirectories(path.join(__dirname, '..', 'public', 'labs'));
-    res.json(yearIDs);
+    let yearIDsWithHumanNames = {ids: yearIDs, humanNames: []};
+    yearIDs.forEach(year => {
+        yearIDsWithHumanNames.humanNames.push(getHumanName(year));
+    });
+    res.json(yearIDsWithHumanNames);
 });
 
 router.get('/disciplines', function(req, res, next) {
@@ -40,7 +47,11 @@ router.get('/disciplines', function(req, res, next) {
         return;
     }
     let disciplineIDs = getDirectories(path.join(__dirname, '..', 'public', 'labs', req.query.year));
-    res.json(disciplineIDs);
+    let disciplineIDsWithHumanNames = {ids: disciplineIDs, humanNames: []};
+    disciplineIDs.forEach(discipline => {
+        disciplineIDsWithHumanNames.humanNames.push(getHumanName(req.query.year, discipline));
+    });
+    res.json(disciplineIDsWithHumanNames);
 });
 
 function naturalCompare(a, b) {
@@ -66,7 +77,11 @@ router.get('/labs', function(req, res, next) {
     }
     let labIDs = getDirectories(path.join(__dirname, '..', 'public', 'labs', req.query.year, req.query.discipline));
     labIDs.sort(naturalCompare);
-    res.json(labIDs);
+    let labIDsWithHumanNames = {ids: labIDs, humanNames: []};
+    labIDs.forEach(lab => {
+        labIDsWithHumanNames.humanNames.push(getHumanName(req.query.year, req.query.discipline, lab));
+    });
+    res.json(labIDsWithHumanNames);
 });
 
 module.exports = router;

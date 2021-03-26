@@ -5,11 +5,13 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import './style.scss'
 
+const rootElement = document.getElementById('root');
+
 ReactDOM.render(
     <BrowserRouter>
         <BreadcrumbsProvider>
             <App />
         </BreadcrumbsProvider>
     </BrowserRouter>,
-    document.getElementById('root')
+    rootElement
 );

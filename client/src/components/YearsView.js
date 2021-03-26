@@ -1,11 +1,11 @@
 import React from 'react';
-import StuffList from './StuffList';
+import LabsList from './LabsList';
 
 function YearsView() {
     return (
         <div>
             <h2>Выберите курс</h2>
-            <StuffList apiURL='/api/years' pageURLPrefix='/y_' humanNameURLPrefix='/api/humanname?year=' />
+            <LabsList apiURL='/api/years' pageURLPrefix='/y_' humanNameURLPrefix='/api/humanname?year=' />
         </div>
     );
 }

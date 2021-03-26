@@ -2,7 +2,7 @@ import React from 'react';
 import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import HumanName from './HumanName';
-import StuffList from './StuffList';
+import LabsList from './LabsList';
 import LabView from './LabView';
 
 function LabsView() {
@@ -27,7 +27,7 @@ function RealLabsView() {
     return (
         <div>
             <h2>Выберите работу</h2>
-            <StuffList apiURL={'/api/labs?year=' + yearID + '&discipline=' + disciplineID} pageURLPrefix={'/' + year + '/' + discipline + '/l_'} humanNameURLPrefix={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID + '&lab='} />
+            <LabsList apiURL={'/api/labs?year=' + yearID + '&discipline=' + disciplineID} pageURLPrefix={'/' + year + '/' + discipline + '/l_'} humanNameURLPrefix={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID + '&lab='} />
         </div>
     );
 }
