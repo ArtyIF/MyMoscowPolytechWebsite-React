@@ -13,7 +13,7 @@ function LabsView() {
         <div>
             <BreadcrumbsItem to={'/' + year + '/' + discipline}><HumanName apiURL={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID} /></BreadcrumbsItem>
             <Switch>
-                <Route path='/:year/:discipline/:lab' component={LabView}/>
+                <Route path='/labs/:year/:discipline/:lab' component={LabView}/>
                 <Route component={RealLabsView} />
             </Switch>
         </div>
@@ -27,7 +27,7 @@ function RealLabsView() {
     return (
         <div>
             <h2>Выберите работу</h2>
-            <LabsList apiURL={'/api/labs?year=' + yearID + '&discipline=' + disciplineID} pageURLPrefix={'/' + year + '/' + discipline + '/l_'} humanNameURLPrefix={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID + '&lab='} />
+            <LabsList apiURL={'/api/labs?year=' + yearID + '&discipline=' + disciplineID} pageURLPrefix={'/labs/' + year + '/' + discipline + '/l_'} humanNameURLPrefix={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID + '&lab='} />
         </div>
     );
 }

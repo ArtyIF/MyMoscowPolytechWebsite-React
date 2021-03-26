@@ -1,7 +1,13 @@
-@use 'sass:color';
-
 $main-color: #00E676;
+$bg-color: #F0F0F0;
+$card-color: white;
+$header-color: #00E676;
+
 $main-color-fg: black;
+$bg-color-fg: black;
+$card-color-fg: black;
+$header-color-fg: black;
+
 $transition-speed: 100ms;
 
 .fade {
@@ -29,6 +35,8 @@ $transition-speed: 100ms;
 }
 
 body {
+    background-color: $bg-color;
+    color: $bg-color-fg;
     font-family: 'PT Sans', sans-serif;
     margin: 0;
 }
@@ -42,13 +50,13 @@ h1, h2, h3, h4, h5, h6, header {
 }
 
 header {
-    background-color: $main-color;
-    color: $main-color-fg;
+    background-color: $header-color;
+    color: $header-color-fg;
     padding: 8px;
     box-shadow: 0px 4px 8px #00000080;
 
     & a {
-        color: $main-color-fg;
+        color: $header-color-fg;
     }
 }
 
@@ -63,20 +71,21 @@ main {
     align-content: space-between;
 
     & .link {
+        background-color: $card-color;
         padding: 8px 16px;
         box-shadow: 0px 4px 8px #00000080;
         position: relative;
     
         &:hover {
-            background-color: color.scale($main-color, $lightness: 90%);
+            background-color: mix($card-color, $main-color, 90%);
         }
     
         &:active {
-            background-color: color.scale($main-color, $lightness: 70%);
+            background-color: mix($card-color, $main-color, 70%);
         }
 
         & a {
-            color: black;
+            color: $card-color-fg;
             text-decoration: none;
             
             &::after {
@@ -90,4 +99,8 @@ main {
             }
         }
     }
+}
+
+.lab-view-main {
+    margin: -8px;
 }

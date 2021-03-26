@@ -4,4 +4,3 @@ cd ..
 
 cd server
 nodemon ./bin/www
-cd ..

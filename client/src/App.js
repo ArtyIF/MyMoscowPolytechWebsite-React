@@ -24,7 +24,8 @@ function App() {
                     <CSSTransition key={location.key} classNames='fade' timeout={100}>
                         <Switch location={location}>
                             <Route exact path='/' component={YearsView}/>
-                            <Route path='/:year' component={DisciplinesView}/>
+                            <Route exact path='/labs' component={YearsView}/>
+                            <Route path='/labs/:year' component={DisciplinesView}/>
                             <Route render={Error404}/>
                         </Switch>
                     </CSSTransition>

@@ -12,7 +12,7 @@ function DisciplinesView() {
         <div>
             <BreadcrumbsItem to={'/' + year}><HumanName apiURL={'/api/humanname?year=' + yearID} /></BreadcrumbsItem>
             <Switch>
-                <Route path='/:year/:discipline' component={LabsView}/>
+                <Route path='/labs/:year/:discipline' component={LabsView}/>
                 <Route component={RealDisciplinesView} />
             </Switch>
         </div>
@@ -25,7 +25,7 @@ function RealDisciplinesView() {
     return (
         <div>
             <h2>Выберите предмет</h2>
-            <LabsList apiURL={'/api/disciplines?year=' + yearID} pageURLPrefix={'/' + year + '/d_'} humanNameURLPrefix={'/api/humanname?year=' + yearID + '&discipline='} />
+            <LabsList apiURL={'/api/disciplines?year=' + yearID} pageURLPrefix={'/labs/' + year + '/d_'} humanNameURLPrefix={'/api/humanname?year=' + yearID + '&discipline='} />
         </div>
     );
 }

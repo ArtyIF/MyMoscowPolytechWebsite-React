@@ -5,7 +5,7 @@ function YearsView() {
     return (
         <div>
             <h2>Выберите курс</h2>
-            <LabsList apiURL='/api/years' pageURLPrefix='/y_' humanNameURLPrefix='/api/humanname?year=' />
+            <LabsList apiURL='/api/years' pageURLPrefix='/labs/y_' humanNameURLPrefix='/api/humanname?year=' />
         </div>
     );
 }

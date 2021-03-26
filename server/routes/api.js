@@ -9,18 +9,18 @@ function getHumanName(year, discipline, lab) {
     let humanName;
     if (year && discipline && lab) {
         humanName = 'Лабораторная работа ' + lab;
-        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', year, discipline, lab, 'humanname'))) {
-            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', year, discipline, lab, 'humanname'), 'utf8');
+        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labfiles', year, discipline, lab, 'humanname'))) {
+            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labfiles', year, discipline, lab, 'humanname'), 'utf8');
         }
     } else if (year && discipline) {
         humanName = 'Нет humanname! (ID: ' + discipline + ')';
-        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', year, discipline, 'humanname'))) {
-            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', year, discipline, 'humanname'), 'utf8');
+        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labfiles', year, discipline, 'humanname'))) {
+            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labfiles', year, discipline, 'humanname'), 'utf8');
         }
     } else if (year) {
         humanName = year + '-й курс';
-        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labs', year, 'humanname'))) {
-            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labs', year, 'humanname'), 'utf8');
+        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labfiles', year, 'humanname'))) {
+            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labfiles', year, 'humanname'), 'utf8');
         }
     } else {
         return 'Неверный запрос';
@@ -33,7 +33,7 @@ router.get('/humanname', function (req, res, next) {
 });
 
 router.get('/years', function(req, res, next) {
-    let yearIDs = getDirectories(path.join(__dirname, '..', 'public', 'labs'));
+    let yearIDs = getDirectories(path.join(__dirname, '..', 'public', 'labfiles'));
     let yearIDsWithHumanNames = {ids: yearIDs, humanNames: []};
     yearIDs.forEach(year => {
         yearIDsWithHumanNames.humanNames.push(getHumanName(year));
@@ -43,10 +43,10 @@ router.get('/years', function(req, res, next) {
 
 router.get('/disciplines', function(req, res, next) {
     if (!req.query.year) {
-        res.status(400).send('400');
+        res.status(400).send('Неверный запрос');
         return;
     }
-    let disciplineIDs = getDirectories(path.join(__dirname, '..', 'public', 'labs', req.query.year));
+    let disciplineIDs = getDirectories(path.join(__dirname, '..', 'public', 'labfiles', req.query.year));
     let disciplineIDsWithHumanNames = {ids: disciplineIDs, humanNames: []};
     disciplineIDs.forEach(discipline => {
         disciplineIDsWithHumanNames.humanNames.push(getHumanName(req.query.year, discipline));
@@ -72,16 +72,26 @@ function naturalCompare(a, b) {
 
 router.get('/labs', function(req, res, next) {
     if (!req.query.year || !req.query.discipline) {
-        res.status(400).send('400');
+        res.status(400).send('Неверный запрос');
         return;
     }
-    let labIDs = getDirectories(path.join(__dirname, '..', 'public', 'labs', req.query.year, req.query.discipline));
+    let labIDs = getDirectories(path.join(__dirname, '..', 'public', 'labfiles', req.query.year, req.query.discipline));
     labIDs.sort(naturalCompare);
     let labIDsWithHumanNames = {ids: labIDs, humanNames: []};
     labIDs.forEach(lab => {
         labIDsWithHumanNames.humanNames.push(getHumanName(req.query.year, req.query.discipline, lab));
     });
     res.json(labIDsWithHumanNames);
+});
+
+router.get('/lab', function(req, res, next) {
+    if (!req.query.year || !req.query.discipline || !req.query.lab) {
+        res.status(400).send('Неверный запрос');
+        return;
+    }
+    let labPageIDs = getDirectories(path.join(__dirname, '..', 'public', 'labfiles', req.query.year, req.query.discipline, req.query.lab));
+    labPageIDs.sort(naturalCompare);
+    res.json(labPageIDs);
 });
 
 module.exports = router;
