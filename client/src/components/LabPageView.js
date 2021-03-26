@@ -3,7 +3,7 @@ import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic';
 import { withRouter } from 'react-router-dom';
 import HumanName from './HumanName';
 
-class LabView extends Component {
+class LabPageView extends Component {
     state = {
         loaded: false,
         error: null,
@@ -18,8 +18,8 @@ class LabView extends Component {
         let labID = lab.substring(2);
         fetch('/api/lab?year=' + yearID + '&discipline=' + disciplineID + '&lab=' + labID).then((res) => res.json())
             .then((res) => {
-                fetch('/labfiles/' + yearID + '/' + disciplineID + '/' + labID + '/' + res[0]).then((resPage) => resPage.text()).
-                    then((resPage) => {
+                fetch('/labfiles/' + yearID + '/' + disciplineID + '/' + labID + '/' + res[0]).then((resPage) => resPage.text())
+                    .then((resPage) => {
                         this.setState({response: resPage});
                         this.setState({loaded: true});
                     }).then((err) => {
@@ -41,13 +41,12 @@ class LabView extends Component {
         let labID = lab.substring(2);
 
         return (
-            <div className='lab-view-main'>
+            <div className='lab-view-main height-100'>
                 <BreadcrumbsItem to={'/labs/' + year + '/' + discipline + '/' + year}><HumanName apiURL={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID + '&lab=' + labID} /></BreadcrumbsItem>
-                <p>Сделать страницу через iframe. Сверху кнопки для просмотра кода и скроллинга страниц</p>
                 <iframe srcdoc={this.state.response} />
             </div>
         );
     }
 }
 
-export default withRouter(LabView);
+export default withRouter(LabPageView);

@@ -3,7 +3,7 @@ import LabsList from './LabsList';
 
 function YearsView() {
     return (
-        <div>
+        <div className='height-100'>
             <h2>Выберите курс</h2>
             <LabsList apiURL='/api/years' pageURLPrefix='/labs/y_' humanNameURLPrefix='/api/humanname?year=' />
         </div>

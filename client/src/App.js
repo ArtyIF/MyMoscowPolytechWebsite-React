@@ -9,7 +9,7 @@ function App() {
     let location = useLocation();
 
     return (
-        <div>
+        <div class='root-flex'>
             <header>
                 <h1>Сайт Артёма Фомина</h1>
                 <BreadcrumbsItem to='/labs'>Лабораторные работы</BreadcrumbsItem>
@@ -20,7 +20,7 @@ function App() {
                 />
             </header>
             <main>
-                <TransitionGroup>
+                <TransitionGroup className='height-100'>
                     <CSSTransition key={location.key} classNames='fade' timeout={100}>
                         <Switch location={location}>
                             <Route exact path='/' component={YearsView}/>
@@ -37,7 +37,7 @@ function App() {
 
 function Error404() {
     return (
-        <div>
+        <div className='height-100'>
             <BreadcrumbsItem to='/404'>Ошибка 404</BreadcrumbsItem>
             <p>Страница не найдена!</p>
         </div>
