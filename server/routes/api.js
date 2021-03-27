@@ -92,8 +92,10 @@ router.get('/lab', function(req, res) {
     }
     let labPages = getFiles(path.join(__dirname, '..', 'public', 'labfiles', req.query.year, req.query.discipline, req.query.lab));
     let labPageIDs = [];
-    labPages.forEach((val, i) => {
-        labPageIDs[i] = val.split('.').slice(0, -1).join('.');
+    labPages.forEach(val => {
+        if (val !== 'humanname') {
+            labPageIDs.push(val.split('.').slice(0, -1).join('.'));
+        }
     });
     labPageIDs.sort(naturalCompare);
     res.json(labPageIDs);
