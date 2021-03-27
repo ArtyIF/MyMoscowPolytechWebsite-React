@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import HumanName from './HumanName';
 
 class LabPageView extends Component {
@@ -48,13 +48,19 @@ class LabPageView extends Component {
         let yearID = year.substring(2);
         let disciplineID = discipline.substring(2);
         let labID = lab.substring(2);
-        let pageID = page ? page.substring(2) : null;
+        let pageID = page ? page.substring(2) : this.state.availablePages[0];
 
         return (
             <div className='lab-view-main height-100'>
                 <BreadcrumbsItem to={'/labs/' + year + '/' + discipline + '/' + year}><HumanName apiURL={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID + '&lab=' + labID} /></BreadcrumbsItem>
                 <div className='lab-navbar'>
-                    Сюда всякие кнопочки {pageID}
+                    {this.state.availablePages.map((value) => {
+                        if (pageID !== value) {
+                            return (<Link to={'/labs/' + year + '/' + discipline + '/' + year + '/p_' + value}>{value}</Link>);
+                        } else {
+                            return (<b>{value}</b>);
+                        }
+                    })}
                 </div>
                 <iframe srcDoc={this.state.sentPage} />
             </div>
