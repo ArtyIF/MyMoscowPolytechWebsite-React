@@ -9,21 +9,27 @@ class LabPageView extends Component {
         this.state = {
             loaded: false,
             error: null,
-            response: 'Загрузка...'
+            availablePages: [],
+            sentPage: 'Загрузка...'
         };
     }
 
     componentDidMount() {
-        let { year, discipline, lab } = this.props.match.params;
+        let { year, discipline, lab, page } = this.props.match.params;
         
         let yearID = year.substring(2);
         let disciplineID = discipline.substring(2);
         let labID = lab.substring(2);
-        fetch('/api/lab?year=' + yearID + '&discipline=' + disciplineID + '&lab=' + labID).then((res) => res.json())
-            .then((res) => {
-                fetch('/labfiles/' + yearID + '/' + disciplineID + '/' + labID + '/' + res[0]).then((resPage) => resPage.text())
-                    .then((resPage) => {
-                        this.setState({response: resPage});
+        let pageID = page ? page.substring(2) : null;
+        fetch('/api/lab?year=' + yearID + '&discipline=' + disciplineID + '&lab=' + labID).then((pageList) => pageList.json())
+            .then((pageList) => {
+                this.setState({availablePages: pageList});
+                if (pageID === null) {
+                    pageID = this.state.availablePages[0];
+                }
+                fetch('/api/page?year=' + yearID + '&discipline=' + disciplineID + '&lab=' + labID + '&page=' + pageID).then((page) => page.text())
+                    .then((page) => {
+                        this.setState({sentPage: page});
                         this.setState({loaded: true});
                     }).then((err) => {
                         this.setState({error: err});
@@ -37,16 +43,20 @@ class LabPageView extends Component {
     }
 
     render() {
-        let { year, discipline, lab } = this.props.match.params;
+        let { year, discipline, lab, page } = this.props.match.params;
 
         let yearID = year.substring(2);
         let disciplineID = discipline.substring(2);
         let labID = lab.substring(2);
+        let pageID = page ? page.substring(2) : null;
 
         return (
             <div className='lab-view-main height-100'>
                 <BreadcrumbsItem to={'/labs/' + year + '/' + discipline + '/' + year}><HumanName apiURL={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID + '&lab=' + labID} /></BreadcrumbsItem>
-                <iframe srcDoc={this.state.response} />
+                <div className='lab-navbar'>
+                    Сюда всякие кнопочки {pageID}
+                </div>
+                <iframe srcDoc={this.state.sentPage} />
             </div>
         );
     }

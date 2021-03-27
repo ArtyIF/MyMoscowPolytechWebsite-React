@@ -90,9 +90,31 @@ router.get('/lab', function(req, res) {
         res.status(400).send('Неверный запрос');
         return;
     }
-    let labPageIDs = getFiles(path.join(__dirname, '..', 'public', 'labfiles', req.query.year, req.query.discipline, req.query.lab));
+    let labPages = getFiles(path.join(__dirname, '..', 'public', 'labfiles', req.query.year, req.query.discipline, req.query.lab));
+    let labPageIDs = [];
+    labPages.forEach((val, i) => {
+        labPageIDs[i] = val.split('.').slice(0, -1).join('.');
+    });
     labPageIDs.sort(naturalCompare);
     res.json(labPageIDs);
+});
+
+router.get('/page', function(req, res) {
+    if (!req.query.year || !req.query.discipline || !req.query.lab || !req.query.page) {
+        res.status(400).send('Неверный запрос');
+        return;
+    }
+    let labPages = getFiles(path.join(__dirname, '..', 'public', 'labfiles', req.query.year, req.query.discipline, req.query.lab));
+    let labPageIDs = [];
+    labPages.forEach((val, i) => {
+        labPageIDs[i] = val.split('.').slice(0, -1).join('.');
+    });
+    let foundID = labPageIDs.indexOf(req.query.page);
+    if (foundID !== -1) {
+        res.sendFile(path.join(__dirname, '..', 'public', 'labfiles', req.query.year, req.query.discipline, req.query.lab, labPages[foundID]));
+    } else {
+        res.status(404).send('Страница не найдена');
+    }
 });
 
 module.exports = router;

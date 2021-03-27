@@ -13,11 +13,14 @@ function App() {
             <header>
                 <h1>Сайт Артёма Фомина</h1>
                 <BreadcrumbsItem to='/labs'>Лабораторные работы</BreadcrumbsItem>
-                <Breadcrumbs
-                    separator={<span> &gt; </span>}
-                    item={NavLink}
-                    finalItem={'b'}
-                />
+                <div className='breadcrumbs-bar'>
+                    <Breadcrumbs
+                        separator={<span> &gt; </span>}
+                        item={NavLink}
+                        finalItem={'b'}
+                        finalProps={{className: 'current-breadcrumb'}}
+                    />
+                </div>
             </header>
             <main>
                 <TransitionGroup className='height-100'>
