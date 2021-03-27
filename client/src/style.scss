@@ -161,6 +161,10 @@ iframe {
     padding: 4px 8px;
     background-color: $breadcrumbs-color;
     color: font-color-contrast($breadcrumbs-color);
+
+    & a {
+        color: font-color-contrast($breadcrumbs-color);
+    }
 }
 
 .breadcrumbs-bar {
