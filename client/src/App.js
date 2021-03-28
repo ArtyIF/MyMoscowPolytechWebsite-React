@@ -15,7 +15,6 @@ function App() {
                 <BreadcrumbsItem to='/labs'>Лабораторные работы</BreadcrumbsItem>
                 <div className='breadcrumbs-bar'>
                     <Breadcrumbs
-                        separator={<span className='separator'> </span>}
                         item={NavLink}
                         finalItem={'b'}
                         finalProps={{className: 'current-breadcrumb'}}

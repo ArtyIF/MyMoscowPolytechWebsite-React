@@ -55,12 +55,12 @@ class LabPageView extends Component {
                 <BreadcrumbsItem to={'/labs/' + year + '/' + discipline + '/' + year}><HumanName apiURL={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID + '&lab=' + labID} /></BreadcrumbsItem>
                 <div className='lab-navbar'>
                     <span>
-                        Страницы:
+                        <span>Страницы: </span>
                         {this.state.availablePages.map((value) => {
                             if (pageID !== value) {
-                                return (<span> <Link to={'/labs/' + year + '/' + discipline + '/' + lab + '/p_' + value}>{value}</Link> </span>);
+                                return (<Link to={'/labs/' + year + '/' + discipline + '/' + lab + '/p_' + value}>{value}</Link>);
                             } else {
-                                return (<span> <b>{value}</b> </span>);
+                                return (<b>{value}</b>);
                             }
                         })}
                     </span>
