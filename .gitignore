@@ -1,5 +1,6 @@
-# Created by https://www.toptal.com/developers/gitignore/api/node,vuejs,visualstudiocode
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,vuejs,visualstudiocode
+
+# Created by https://www.toptal.com/developers/gitignore/api/node,react,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,react,visualstudiocode
 
 ### Node ###
 # Logs
@@ -127,6 +128,19 @@ dist/
 tmp/
 temp/
 
+### react ###
+.DS_*
+**/*.backup.*
+**/*.back.*
+
+node_modules
+
+*.sublime*
+
+psd
+thumb
+sketch
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/tasks.json
@@ -138,13 +152,10 @@ temp/
 .history
 .ionide
 
-### Vuejs ###
-# Recommended template: Node.gitignore
-
-npm-debug.log
-yarn-error.log
-
-# End of https://www.toptal.com/developers/gitignore/api/node,vuejs,visualstudiocode
+# End of https://www.toptal.com/developers/gitignore/api/node,react,visualstudiocode
 
 # не добавлять сборку клиента в репозиторий
 client/build/
+
+# не добавлять логи
+server.log

@@ -16,7 +16,9 @@ cd ..
 
 echo '4/4 Запуск сервера'
 cd server
-npm start > server.log & disown
+npm start > ../server.log & disown
 cd ..
+
+echo 'Заметка: чтобы убить сервер, напишите "ps auxf", найдите "npm start", а потом напишите "kill <PID процесса npm start>"'
 
 # TODO: протестировать и исправить
