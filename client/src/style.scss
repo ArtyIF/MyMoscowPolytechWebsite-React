@@ -16,7 +16,7 @@ $breadcrumbs-color: #202020;
 
 $transition-speed: 100ms;
 
-.fade {
+.page-transition {
     &-enter {
         opacity: 0;
         transform: translateX(8px);
