@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { ghcolors as codeStyle } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { LightAsync as SyntaxHighlighter } from 'react-syntax-highlighter';
+import handlebars from 'react-syntax-highlighter/dist/esm/languages/hljs/handlebars';
+// eslint-disable-next-line no-unused-vars
+import docco from 'react-syntax-highlighter/dist/esm/styles/hljs/docco';
+
+import { vs as codeStyle } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+
+SyntaxHighlighter.registerLanguage('handlebars', handlebars);
 
 class LabCodeView extends Component {
     constructor() {
@@ -60,7 +66,7 @@ class LabCodeView extends Component {
                     })}
                     <Link to={'/labs/' + year + '/' + discipline + '/' + lab + '/p_' + pageID} className='code-button'>Просмотр</Link>
                 </div>
-                <SyntaxHighlighter language="html" style={codeStyle} showLineNumbers className='code-block'>
+                <SyntaxHighlighter language='handlebars' style={codeStyle} showLineNumbers className='code-block'>
                     {this.state.sentPage}
                 </SyntaxHighlighter>
             </div>
