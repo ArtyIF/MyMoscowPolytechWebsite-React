@@ -16,7 +16,7 @@ cd ..
 
 echo '4/4 Запуск сервера'
 cd server
-npm start &
+npm start > server.log & disown
 cd ..
 
 # TODO: протестировать и исправить
