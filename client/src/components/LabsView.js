@@ -13,7 +13,6 @@ function LabsView() {
         <div className='height-100'>
             <BreadcrumbsItem to={'/labs/' + year + '/' + discipline}><HumanName apiURL={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID} /></BreadcrumbsItem>
             <Switch>
-                <Route path='/labs/:year/:discipline/:lab/:page' component={LabPageView}/>
                 <Route path='/labs/:year/:discipline/:lab' component={LabPageView}/>
                 <Route component={RealLabsView} />
             </Switch>

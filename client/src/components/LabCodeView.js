@@ -1,28 +1,9 @@
 import React, { Component } from 'react';
-import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic';
-import { Switch, Route, Link, withRouter, useRouteMatch } from 'react-router-dom';
-import HumanName from './HumanName';
-import LabCodeView from './LabCodeView';
+import { Link, withRouter } from 'react-router-dom';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { ghcolors as codeStyle } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-function LabPageView() {
-    let { year, discipline, lab } = useRouteMatch().params;
-    
-    let yearID = year.substring(2);
-    let disciplineID = discipline.substring(2);
-    let labID = lab.substring(2);
-    return (
-        <div className='height-100'>
-            <BreadcrumbsItem to={'/labs/' + year + '/' + discipline + '/' + labID}><HumanName apiURL={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID + '&lab=' + labID} /></BreadcrumbsItem>
-            <Switch>
-                <Route path='/labs/:year/:discipline/:lab/:page/code' component={LabCodeView}/>
-                <Route path='/labs/:year/:discipline/:lab/:page' component={RealLabPageView}/>
-                <Route component={RealLabPageView} />
-            </Switch>
-        </div>
-    );
-}
-
-class RealLabPageView extends Component {
+class LabCodeView extends Component {
     constructor() {
         super();
         this.state = {
@@ -72,17 +53,19 @@ class RealLabPageView extends Component {
                     <span>Страницы: </span>
                     {this.state.availablePages.map((value) => {
                         if (pageID !== value) {
-                            return (<Link to={'/labs/' + year + '/' + discipline + '/' + lab + '/p_' + value}>{value}</Link>);
+                            return (<Link to={'/labs/' + year + '/' + discipline + '/' + lab + '/p_' + value + '/code'}>{value}</Link>);
                         } else {
                             return (<b>{value}</b>);
                         }
                     })}
-                    <Link to={'/labs/' + year + '/' + discipline + '/' + lab + '/p_' + pageID + '/code'} className='code-button'>Код</Link>
+                    <Link to={'/labs/' + year + '/' + discipline + '/' + lab + '/p_' + pageID} className='code-button'>Просмотр</Link>
                 </div>
-                <iframe srcDoc={this.state.sentPage} />
+                <SyntaxHighlighter language="html" style={codeStyle} showLineNumbers className='code-block'>
+                    {this.state.sentPage}
+                </SyntaxHighlighter>
             </div>
         );
     }
 }
 
-export default withRouter(LabPageView);
+export default withRouter(LabCodeView);
