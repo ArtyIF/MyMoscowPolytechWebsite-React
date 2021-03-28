@@ -21,6 +21,7 @@ $transition-speed: 200ms;
         opacity: 0;
         transform: translateX(8px);
         position: absolute;
+
         &-active {
             opacity: 1;
             transform: translateX(0px);
@@ -32,6 +33,7 @@ $transition-speed: 200ms;
         opacity: 1;
         transform: translateX(0px);
         position: absolute;
+
         &-active {
             opacity: 0;
             transform: translateX(-8px);
@@ -217,4 +219,15 @@ iframe {
     padding: 0 !important;
     margin: 0 !important;
     height: 100%;
+}
+
+.transition-safe {
+    background-color: #00000040;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: none;
 }
