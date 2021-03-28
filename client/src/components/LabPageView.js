@@ -58,7 +58,7 @@ class LabPageView extends Component {
                         Страницы:
                         {this.state.availablePages.map((value) => {
                             if (pageID !== value) {
-                                return (<span> <Link to={'/labs/' + year + '/' + discipline + '/' + year + '/p_' + value}>{value}</Link> </span>);
+                                return (<span> <Link to={'/labs/' + year + '/' + discipline + '/' + lab + '/p_' + value}>{value}</Link> </span>);
                             } else {
                                 return (<span> <b>{value}</b> </span>);
                             }
