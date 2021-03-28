@@ -16,7 +16,7 @@ cd ..
 
 echo '4/4 Запуск сервера'
 cd server
-bg npm start
+npm start &
 cd ..
 
 # TODO: протестировать и исправить
