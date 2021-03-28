@@ -21,9 +21,6 @@ $transition-speed: 200ms;
         opacity: 0;
         transform: translateX(8px);
         position: absolute;
-        & iframe {
-            display: none;
-        }
         &-active {
             opacity: 1;
             transform: translateX(0px);
@@ -39,9 +36,6 @@ $transition-speed: 200ms;
             opacity: 0;
             transform: translateX(-8px);
             transition: opacity $transition-speed, transform $transition-speed;
-        }
-        & iframe {
-            display: none;
         }
     }
 }
