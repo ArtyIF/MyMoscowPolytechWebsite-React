@@ -97,7 +97,7 @@ main {
         background-color: $card-color;
         color: font-color-contrast($card-color);
         padding: 4px 8px;
-        box-shadow: 0px 4px 8px #00000080;
+        box-shadow: 0px 2px 4px #00000080;
         position: relative;
     
         &:hover {
@@ -183,8 +183,8 @@ iframe {
 }
 
 .breadcrumbs-bar {
-    background-color: mix($breadcrumbs-color, $header-color);
-    color: font-color-contrast(mix($breadcrumbs-color, $header-color));
+    background-color: mix($header-color, $breadcrumbs-color);
+    color: font-color-contrast(mix($header-color, $breadcrumbs-color));
     padding: 6px 8px;
 
     & a {
