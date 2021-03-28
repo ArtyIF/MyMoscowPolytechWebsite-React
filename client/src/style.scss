@@ -177,6 +177,11 @@ iframe {
         }
     }
 
+    & .code-button {
+        float: right;
+        margin-top: -2px;
+    }
+
     & b {
         margin-right: 4px;
     }
