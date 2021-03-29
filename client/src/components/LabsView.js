@@ -1,25 +1,8 @@
 import React from 'react';
-import { Switch, Route, useRouteMatch } from 'react-router-dom';
-import HumanName from './HumanName';
+import { useRouteMatch } from 'react-router-dom';
 import LabsList from './LabsList';
-import LabPageView from './LabPageView';
 
 function LabsView() {
-    let { year, discipline } = useRouteMatch().params;
-    let yearID = year.substring(2);
-    let disciplineID = discipline.substring(2);
-    return (
-        <div className='height-100'>
-            <BreadcrumbsItem to={'/labs/' + year + '/' + discipline}><HumanName apiURL={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID} /></BreadcrumbsItem>
-            <Switch>
-                <Route path='/labs/:year/:discipline/:lab' component={LabPageView}/>
-                <Route component={RealLabsView} />
-            </Switch>
-        </div>
-    );
-}
-
-function RealLabsView() {
     let { year, discipline } = useRouteMatch().params;
     let yearID = year.substring(2);
     let disciplineID = discipline.substring(2);

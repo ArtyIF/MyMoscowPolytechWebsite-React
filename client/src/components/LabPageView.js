@@ -1,27 +1,7 @@
 import React, { Component } from 'react';
-import { Switch, Route, Link, withRouter, useRouteMatch } from 'react-router-dom';
-import HumanName from './HumanName';
-import LabCodeView from './LabCodeView';
+import { Link, withRouter } from 'react-router-dom';
 
-function LabPageView() {
-    let { year, discipline, lab } = useRouteMatch().params;
-    
-    let yearID = year.substring(2);
-    let disciplineID = discipline.substring(2);
-    let labID = lab.substring(2);
-    return (
-        <div className='height-100'>
-            <BreadcrumbsItem to={'/labs/' + year + '/' + discipline + '/' + labID}><HumanName apiURL={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID + '&lab=' + labID} /></BreadcrumbsItem>
-            <Switch>
-                <Route path='/labs/:year/:discipline/:lab/:page/code' component={LabCodeView}/>
-                <Route path='/labs/:year/:discipline/:lab/:page' component={RealLabPageView}/>
-                <Route component={RealLabPageView} />
-            </Switch>
-        </div>
-    );
-}
-
-class RealLabPageView extends Component {
+class LabPageView extends Component {
     constructor() {
         super();
         this.state = {

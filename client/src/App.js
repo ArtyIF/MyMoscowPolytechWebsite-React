@@ -3,6 +3,9 @@ import { Route, Switch, NavLink, useLocation } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import YearsView from './components/YearsView';
 import DisciplinesView from './components/DisciplinesView';
+import LabsView from './components/LabsView';
+import LabPageView from './components/LabPageView';
+import LabCodeView from './components/LabCodeView';
 
 function App() {
     let location = useLocation();
@@ -26,7 +29,11 @@ function App() {
                         <Switch location={location}>
                             <Route exact path='/' component={YearsView}/>
                             <Route exact path='/labs' component={YearsView}/>
-                            <Route path='/labs/:year' component={DisciplinesView}/>
+                            <Route exact path='/labs/:year' component={DisciplinesView}/>
+                            <Route exact path='/labs/:year/:discipline' component={LabsView}/>
+                            <Route exact path='/labs/:year/:discipline/:lab' component={LabPageView}/>
+                            <Route exact path='/labs/:year/:discipline/:lab/:page' component={LabPageView}/>
+                            <Route exact path='/labs/:year/:discipline/:lab/:page/code' component={LabCodeView}/>
                             <Route render={Error404}/>
                         </Switch>
                     </CSSTransition>
