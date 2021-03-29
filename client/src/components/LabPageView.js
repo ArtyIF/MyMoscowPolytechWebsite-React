@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic';
 import { Switch, Route, Link, withRouter, useRouteMatch } from 'react-router-dom';
 import HumanName from './HumanName';
 import LabCodeView from './LabCodeView';

@@ -1,5 +1,4 @@
 import React from 'react';
-import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import HumanName from './HumanName';
 import LabsList from './LabsList';

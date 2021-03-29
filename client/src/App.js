@@ -1,5 +1,4 @@
 import React from 'react';
-import { Breadcrumbs, BreadcrumbsItem } from 'react-breadcrumbs-dynamic';
 import { Route, Switch, NavLink, useLocation } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import YearsView from './components/YearsView';
