@@ -10,19 +10,19 @@ const humanNames = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'public
 function getHumanName(year, discipline, lab) {
     let humanName = '';
     if (year && discipline && lab) {
-        humanName = humanNames.templates.labsLab.replace('$', lab);
-        if (humanNames.custom.labsLab && humanNames.custom.labsLab['/labs/' + year + '/' + discipline + '/' + lab]) {
-            humanName = humanNames.custom.labsLab['/labs/' + year + '/' + discipline + '/' + lab];
+        humanName = humanNames.placeholders['/labs/y_*/d_*/l_$'].replace('$', lab);
+        if (humanNames.custom['/labs/y_' + year + '/d_' + discipline + '/l_' + lab]) {
+            humanName = humanNames.custom['/labs/y_' + year + '/d_' + discipline + '/l_' + lab];
         }
     } else if (year && discipline) {
-        humanName = humanNames.templates.labsDiscipline.replace('$', discipline);
-        if (humanNames.custom.labsDiscipline && humanNames.custom.labsDiscipline['/labs/' + year + '/' + discipline]) {
-            humanName = humanNames.custom.labsDiscipline['/labs/' + year + '/' + discipline];
+        humanName = humanNames.placeholders['/labs/y_*/d_$'].replace('$', discipline);
+        if (humanNames.custom['/labs/y_' + year + '/d_' + discipline]) {
+            humanName = humanNames.custom['/labs/y_' + year + '/d_' + discipline];
         }
     } else if (year) {
-        humanName = humanNames.templates.labsYear.replace('$', year);
-        if (humanNames.custom.labsYear && humanNames.custom.labsYear['/labs/' + year]) {
-            humanName = humanNames.custom.labsYear['/labs/' + year];
+        humanName = humanNames.placeholders['/labs/y_$'].replace('$', year);
+        if (humanNames.custom['/labs/y_' + year]) {
+            humanName = humanNames.custom['/labs/y_' + year];
         }
     } else {
         return 'Неверный запрос';

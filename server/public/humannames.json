@@ -1,19 +1,15 @@
 {
     "language": "ru",
-    "templates": {
-        "labsYear": "$-й курс",
-        "labsDiscipline": "ДАТЬ ИМЯ В HUMANNAMES.JSON (custom.discipline.$)",
-        "labsLab": "Лабораторная работа $",
-        "labsPage": "$"
+    "placeholders": {
+        "/labs/y_$": "$-й курс",
+        "/labs/y_*/d_$": "ДАТЬ ИМЯ В HUMANNAMES.JSON (custom.discipline.$)",
+        "/labs/y_*/d_*/l_$": "Лабораторная работа $",
+        "/labs/y_*/d_*/l_*/p_$": "$"
     },
     "custom": {
-        "labsDiscipline": {
-            "/labs/1/poya": "Проблемно-ориентированные языки",
-            "/labs/1/vss": "Вычислительные системы и сети",
-            "/labs/1/webapp": "Разработка веб-приложений"
-        },
-        "labsLab": {
-            "/labs/1/vss/final": "Зачёт"
-        }
+        "/labs/y_1/d_poya": "Проблемно-ориентированные языки",
+        "/labs/y_1/d_vss": "Вычислительные системы и сети",
+        "/labs/y_1/d_webapp": "Разработка веб-приложений",
+        "/labs/y_1/d_vss/l_final": "Зачёт"
     }
 }
