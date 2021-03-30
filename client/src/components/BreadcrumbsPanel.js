@@ -4,14 +4,13 @@ import { withRouter } from 'react-router';
 class BreadcrumbsPanel extends Component {
     constructor() {
         super();
-
-        this.state = {
-            splitPath: ''
-        };
     }
 
     componentDidMount() {
-        this.setState({splitPath: this.props.location.pathname});
+        console.log(this.props.location.pathname);
+    }
+
+    componentDidUpdate() {
         console.log(this.props.location.pathname);
     }
     
