@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, useLocation } from 'react-router-dom';
+import { Route, useLocation } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import BreadcrumbsPanel from './components/BreadcrumbsPanel';
 import YearsView from './components/YearsView';
@@ -7,6 +7,7 @@ import DisciplinesView from './components/DisciplinesView';
 import LabsView from './components/LabsView';
 import LabPageView from './components/LabPageView';
 import LabCodeView from './components/LabCodeView';
+import BreadcrumbsSwitch from './components/BreadcrumbsSwitch';
 
 function App() {
     let location = useLocation();
@@ -20,7 +21,7 @@ function App() {
             <main>
                 <TransitionGroup className='height-100'>
                     <CSSTransition key={location.key} classNames='page-transition' timeout={200}>
-                        <Switch location={location}>
+                        <BreadcrumbsSwitch location={location}>
                             <Route exact path='/' component={YearsView}/>
                             <Route exact path='/labs' component={YearsView}/>
                             <Route exact path='/labs/:year' component={DisciplinesView}/>
@@ -28,7 +29,7 @@ function App() {
                             <Route exact path='/labs/:year/:discipline/:lab' component={LabPageView}/>
                             <Route exact path='/labs/:year/:discipline/:lab/:page' component={LabPageView}/>
                             <Route exact path='/labs/:year/:discipline/:lab/:page/code' component={LabCodeView}/>
-                        </Switch>
+                        </BreadcrumbsSwitch>
                     </CSSTransition>
                 </TransitionGroup>
             </main>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import CardLink from './CardLink';
+import { appRouters } from './BreadcrumbsSwitch';
 
 class BreadcrumbsPanel extends Component {
     constructor() {
@@ -8,6 +9,7 @@ class BreadcrumbsPanel extends Component {
     }
     
     render() {
+        console.log(appRouters);
         let splitPathname = this.props.location.pathname.split('/');
         let newSplitPathname = [];
         splitPathname.map((value) => {
