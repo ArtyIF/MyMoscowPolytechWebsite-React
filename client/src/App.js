@@ -27,8 +27,8 @@ function App() {
                             <Route exact path='/labs/:year' component={DisciplinesView}/>
                             <Route exact path='/labs/:year/:discipline' component={LabsView}/>
                             <Route exact path='/labs/:year/:discipline/:lab' component={LabPageView}/>
-                            <Route exact path='/labs/:year/:discipline/:lab/:page' component={LabPageView}/>
-                            <Route exact path='/labs/:year/:discipline/:lab/:page/code' component={LabCodeView}/>
+                            <Route exact path='/labs/:year/:discipline/:lab/:page' component={LabPageView} noBreadcrumb/>
+                            <Route exact path='/labs/:year/:discipline/:lab/:page/code' component={LabCodeView} noBreadcrumb/>
                         </BreadcrumbsSwitch>
                     </CSSTransition>
                 </TransitionGroup>
