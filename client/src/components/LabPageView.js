@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import CardLink from './CardLink';
 
 class LabPageView extends Component {
     constructor() {
@@ -51,7 +52,7 @@ class LabPageView extends Component {
                     <span>Страницы: </span>
                     {this.state.availablePages.map((value) => {
                         if (pageID !== value) {
-                            return (<Link to={'/labs/' + year + '/' + discipline + '/' + lab + '/p_' + value}>{value}</Link>);
+                            return (<CardLink to={'/labs/' + year + '/' + discipline + '/' + lab + '/p_' + value}>{value}</CardLink>);
                         } else {
                             return (<b>{value}</b>);
                         }

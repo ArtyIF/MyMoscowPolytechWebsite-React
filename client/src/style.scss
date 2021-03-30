@@ -88,37 +88,37 @@ main {
     gap: 4px;
     align-content: space-between;
     padding-bottom: 4px;
+}
 
-    & .link {
-        background-color: $card-color;
+.link {
+    background-color: $card-color;
+    color: font-color-contrast($card-color);
+    padding: 4px 8px;
+    box-shadow: 0px 2px 4px #00000080;
+    position: relative;
+
+    &:hover {
+        background-color: mix($card-color, $highlight-color, 90%);
+        color: font-color-contrast(mix($card-color, $highlight-color, 90%));
+    }
+
+    &:active {
+        background-color: mix($card-color, $highlight-color, 70%);
+        color: font-color-contrast(mix($card-color, $highlight-color, 70%));
+    }
+
+    & a {
         color: font-color-contrast($card-color);
-        padding: 4px 8px;
-        box-shadow: 0px 2px 4px #00000080;
-        position: relative;
-    
-        &:hover {
-            background-color: mix($card-color, $highlight-color, 90%);
-            color: font-color-contrast(mix($card-color, $highlight-color, 90%));
-        }
-    
-        &:active {
-            background-color: mix($card-color, $highlight-color, 70%);
-            color: font-color-contrast(mix($card-color, $highlight-color, 70%));
-        }
-
-        & a {
-            color: font-color-contrast($card-color);
-            text-decoration: none;
-            
-            &::after {
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                z-index: 1;
-                content: "";
-            }
+        text-decoration: none;
+        
+        &::after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            content: "";
         }
     }
 }
@@ -159,25 +159,6 @@ iframe {
     background-color: $breadcrumbs-color;
     color: font-color-contrast($breadcrumbs-color);
 
-    & a {
-        background-color: $card-color;
-        color: font-color-contrast($card-color);
-        text-decoration: none;
-        padding: 2px 4px;
-        margin-right: 4px;
-        position: relative;
-    
-        &:hover {
-            background-color: mix($card-color, $highlight-color, 90%);
-            color: font-color-contrast(mix($card-color, $highlight-color, 90%));
-        }
-    
-        &:active {
-            background-color: mix($card-color, $highlight-color, 70%);
-            color: font-color-contrast(mix($card-color, $highlight-color, 70%));
-        }
-    }
-
     & .code-button {
         float: right;
         margin-top: -2px;
@@ -192,25 +173,6 @@ iframe {
     background-color: mix($header-color, $breadcrumbs-color);
     color: font-color-contrast(mix($header-color, $breadcrumbs-color));
     padding: 8px 8px;
-
-    & a {
-        background-color: $card-color;
-        color: font-color-contrast($card-color);
-        text-decoration: none;
-        padding: 4px 8px;
-        margin-right: 4px;
-        position: relative;
-    
-        &:hover {
-            background-color: mix($card-color, $highlight-color, 90%);
-            color: font-color-contrast(mix($card-color, $highlight-color, 90%));
-        }
-    
-        &:active {
-            background-color: mix($card-color, $highlight-color, 70%);
-            color: font-color-contrast(mix($card-color, $highlight-color, 70%));
-        }
-    }
 }
 
 .code-block {

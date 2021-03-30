@@ -10,19 +10,19 @@ const humanNames = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'public
 function getHumanName(year, discipline, lab) {
     let humanName = '';
     if (year && discipline && lab) {
-        humanName = humanNames.templates.lab.replace('$', lab);
-        if (humanNames.custom.lab && humanNames.custom.lab[year + '/' + discipline + '/' + lab]) {
-            humanName = humanNames.custom.lab[year + '/' + discipline + '/' + lab];
+        humanName = humanNames.templates.labsLab.replace('$', lab);
+        if (humanNames.custom.labsLab && humanNames.custom.labsLab['/labs/' + year + '/' + discipline + '/' + lab]) {
+            humanName = humanNames.custom.labsLab['/labs/' + year + '/' + discipline + '/' + lab];
         }
     } else if (year && discipline) {
-        humanName = humanNames.templates.discipline.replace('$', discipline);
-        if (humanNames.custom.discipline && humanNames.custom.discipline[year + '/' + discipline]) {
-            humanName = humanNames.custom.discipline[year + '/' + discipline];
+        humanName = humanNames.templates.labsDiscipline.replace('$', discipline);
+        if (humanNames.custom.labsDiscipline && humanNames.custom.labsDiscipline['/labs/' + year + '/' + discipline]) {
+            humanName = humanNames.custom.labsDiscipline['/labs/' + year + '/' + discipline];
         }
     } else if (year) {
-        humanName = humanNames.templates.year.replace('$', year);
-        if (humanNames.custom.year && humanNames.custom.year[year]) {
-            humanName = humanNames.custom.year[year];
+        humanName = humanNames.templates.labsYear.replace('$', year);
+        if (humanNames.custom.labsYear && humanNames.custom.labsYear['/labs/' + year]) {
+            humanName = humanNames.custom.labsYear['/labs/' + year];
         }
     } else {
         return 'Неверный запрос';
