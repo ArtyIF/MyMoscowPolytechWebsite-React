@@ -24,7 +24,6 @@ function Routes() {
 function Error404() {
     return (
         <div className='height-100'>
-            <BreadcrumbsItem to='/404'>Ошибка 404</BreadcrumbsItem>
             <p>Страница не найдена!</p>
         </div>
     );

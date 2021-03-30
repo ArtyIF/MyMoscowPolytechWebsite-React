@@ -38,7 +38,7 @@ class LabsList extends Component {
         } else {
             return (<div />);
         }
-        return (<div className='stuff-list'>{res}</div>);
+        return (<div className='labs-list'>{res}</div>);
     }
 }
 

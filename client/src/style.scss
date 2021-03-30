@@ -82,7 +82,7 @@ main {
     overflow-x: hidden;
 }
 
-.stuff-list {
+.labs-list {
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
@@ -188,7 +188,7 @@ iframe {
     }
 }
 
-.breadcrumbs-bar {
+.breadcrumbs-panel {
     background-color: mix($header-color, $breadcrumbs-color);
     color: font-color-contrast(mix($header-color, $breadcrumbs-color));
     padding: 8px 8px;

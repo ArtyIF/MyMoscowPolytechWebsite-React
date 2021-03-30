@@ -1,6 +1,7 @@
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import BreadcrumbsPanel from './components/BreadcrumbsPanel';
 import Routes from './components/Routes';
 
 function App() {
@@ -10,14 +11,7 @@ function App() {
         <div className='root-flex'>
             <header>
                 <h1>Сайт Артёма Фомина</h1>
-                <BreadcrumbsItem to='/labs'>Лабораторные работы</BreadcrumbsItem>
-                <div className='breadcrumbs-bar'>
-                    <Breadcrumbs
-                        item={NavLink}
-                        finalItem={'b'}
-                        finalProps={{className: 'current-breadcrumb'}}
-                    />
-                </div>
+                <BreadcrumbsPanel />
             </header>
             <main>
                 <TransitionGroup className='height-100'>
