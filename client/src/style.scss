@@ -107,6 +107,14 @@ main {
         color: font-color-contrast(mix($card-color, $highlight-color, 70%));
     }
 
+    &_active {
+        padding: 4px 8px;
+        box-shadow: 0px 2px 4px #00000080;
+        background-color: mix($card-color, $highlight-color, 50%);
+        color: font-color-contrast(mix($card-color, $highlight-color, 50%));
+        font-weight: bold;
+    }
+
     & a {
         color: font-color-contrast($card-color);
         text-decoration: none;
@@ -154,13 +162,13 @@ iframe {
 }
 
 .lab-navbar {
+    display: flex;
     height: fit-content;
     padding: 6px 8px;
     background-color: $breadcrumbs-color;
     color: font-color-contrast($breadcrumbs-color);
 
     & .code-button {
-        float: right;
         margin-top: -2px;
     }
 
@@ -170,9 +178,11 @@ iframe {
 }
 
 .breadcrumbs-panel {
+    display: flex;
+    gap: 4px;
     background-color: mix($header-color, $breadcrumbs-color);
     color: font-color-contrast(mix($header-color, $breadcrumbs-color));
-    padding: 8px 8px;
+    padding: 4px 8px;
 }
 
 .code-block {
