@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import YearsView from './components/YearsView';
-import DisciplinesView from './components/DisciplinesView';
-import LabsView from './components/LabsView';
-import LabPageView from './components/LabPageView';
-import LabCodeView from './components/LabCodeView';
+import YearsView from './YearsView';
+import DisciplinesView from './DisciplinesView';
+import LabsView from './LabsView';
+import LabPageView from './LabPageView';
+import LabCodeView from './LabCodeView';
 
 function Routes() {
     return (

@@ -1,0 +1,19 @@
+{
+    "language": "ru",
+    "templates": {
+        "year": "$-й курс",
+        "discipline": "ДАТЬ ИМЯ В HUMANNAMES.JSON (custom.discipline.$)",
+        "lab": "Лабораторная работа $",
+        "page": "$"
+    },
+    "custom": {
+        "discipline": {
+            "1/poya": "Проблемно-ориентированные языки",
+            "1/vss": "Вычислительные системы и сети",
+            "1/webapp": "Разработка веб-приложений"
+        },
+        "lab": {
+            "1/vss/final": "Зачёт"
+        }
+    }
+}
