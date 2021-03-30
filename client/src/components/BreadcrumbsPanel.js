@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import CardLink from './CardLink';
-import { appRouters } from './BreadcrumbsSwitch';
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => {
+    return { routesList: state.routesList };
+};
 
 class BreadcrumbsPanel extends Component {
     constructor() {
@@ -9,7 +13,7 @@ class BreadcrumbsPanel extends Component {
     }
     
     render() {
-        console.log(appRouters);
+        console.log(this.props.routesList);
         let splitPathname = this.props.location.pathname.split('/');
         let newSplitPathname = [];
         splitPathname.map((value) => {
@@ -34,4 +38,4 @@ class BreadcrumbsPanel extends Component {
     }
 }
 
-export default withRouter(BreadcrumbsPanel);
+export default connect(mapStateToProps)(withRouter(BreadcrumbsPanel));

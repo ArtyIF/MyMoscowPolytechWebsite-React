@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { Switch } from 'react-router-dom';
+import { refreshRoutesList } from '../actions/index';
+import { connect } from 'react-redux';
 
 export let appRouters = [];
+
+function mapDispatchToProps(dispatch) {
+    return {
+        refreshRoutesList: routesList => dispatch(refreshRoutesList(routesList))
+    };
+}
 
 class BreadcrumbsSwitch extends Component {
     constructor() {
@@ -10,11 +18,7 @@ class BreadcrumbsSwitch extends Component {
     }
 
     componentDidMount() {
-        appRouters = this.props.children;
-    }
-
-    componentDidUpdate() {
-        appRouters = this.props.children;
+        this.props.refreshRoutesList(this.props.children);
     }
     
     render() {
@@ -24,4 +28,4 @@ class BreadcrumbsSwitch extends Component {
     }
 }
 
-export default withRouter(BreadcrumbsSwitch);
+export default connect(null, mapDispatchToProps)(withRouter(BreadcrumbsSwitch));
