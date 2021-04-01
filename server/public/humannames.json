@@ -1,10 +1,10 @@
 {
-    "language": "ru",
+    "default": "Ошибка 404",
     "placeholders": {
-        "/labs/y_$": "$-й курс",
-        "/labs/y_*/d_$": "ДАТЬ ИМЯ В HUMANNAMES.JSON (custom.discipline.$)",
-        "/labs/y_*/d_*/l_$": "Лабораторная работа $",
-        "/labs/y_*/d_*/l_*/p_$": "$"
+        "/labs/y_\\w*/d_\\w*/l_\\w*/p_(\\w*)": "$0",
+        "/labs/y_\\w*/d_\\w*/l_(\\w*)": "Лабораторная работа $0",
+        "/labs/y_\\w*/d_(\\w*)": "ДАТЬ ИМЯ В HUMANNAMES.JSON (ID: $0)",
+        "/labs/y_(\\w*)": "$0-й курс"
     },
     "custom": {
         "/labs/y_1/d_poya": "Проблемно-ориентированные языки",

@@ -7,31 +7,30 @@ const getDirectories = source => fs.readdirSync(source, { withFileTypes: true })
 const getFiles = source => fs.readdirSync(source, { withFileTypes: true }).filter(dirent => dirent.isFile()).map(dirent => dirent.name);
 const humanNames = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'public', 'humannames.json'), 'utf8'));
 
-function getHumanName(year, discipline, lab) {
-    let humanName = '';
-    if (year && discipline && lab) {
-        humanName = humanNames.placeholders['/labs/y_*/d_*/l_$'].replace('$', lab);
-        if (humanNames.custom['/labs/y_' + year + '/d_' + discipline + '/l_' + lab]) {
-            humanName = humanNames.custom['/labs/y_' + year + '/d_' + discipline + '/l_' + lab];
-        }
-    } else if (year && discipline) {
-        humanName = humanNames.placeholders['/labs/y_*/d_$'].replace('$', discipline);
-        if (humanNames.custom['/labs/y_' + year + '/d_' + discipline]) {
-            humanName = humanNames.custom['/labs/y_' + year + '/d_' + discipline];
-        }
-    } else if (year) {
-        humanName = humanNames.placeholders['/labs/y_$'].replace('$', year);
-        if (humanNames.custom['/labs/y_' + year]) {
-            humanName = humanNames.custom['/labs/y_' + year];
-        }
+function getHumanName(path) {
+    if (typeof humanNames.custom[path] !== 'undefined') {
+        return humanNames.custom[path];
     } else {
-        return 'Неверный запрос';
+        let finalValue = humanNames.default;
+        let regexes = Object.keys(humanNames.placeholders);
+        let values = Object.values(humanNames.placeholders);
+        for (let i = 0; i < regexes.length; i++) {
+            let currentRegex = new RegExp(regexes[i], 'g');
+            let matches = currentRegex.exec(path);
+            if (matches) {
+                finalValue = values[i];
+                for (let j = 0; j < matches.length; j++) {
+                    finalValue = finalValue.replace('$' + j, matches[j]).replace('&dol;', '$').replace('&amp;', '&');
+                }
+                break;
+            }
+        }
+        return finalValue;
     }
-    return humanName;
 }
 
 router.get('/humanname', function (req, res) {
-    res.send(getHumanName(req.query.year, req.query.discipline, req.query.lab));
+    res.send(getHumanName(req.query.path));
 });
 
 router.get('/years', function(req, res) {
