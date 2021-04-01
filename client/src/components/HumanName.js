@@ -11,7 +11,12 @@ class HumanName extends Component {
     
 
     componentDidMount() {
-        fetch(this.props.apiURL).then((res) => res.text())
+        let url = new URL('/api/humanname', window.location.origin);
+        url.search = new URLSearchParams({
+            path: this.props.path
+        }).toString();
+        
+        fetch(url).then((res) => res.text())
             .then((res) => {
                 this.setState({response: res});
             })
