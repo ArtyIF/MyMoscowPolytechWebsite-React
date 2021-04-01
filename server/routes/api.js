@@ -12,8 +12,8 @@ function getHumanName(path) {
         return humanNames.custom[path];
     } else {
         let finalValue = humanNames.default;
-        let regexes = Object.keys(humanNames.placeholders);
-        let values = Object.values(humanNames.placeholders);
+        let regexes = Object.keys(humanNames.templates);
+        let values = Object.values(humanNames.templates);
         for (let i = 0; i < regexes.length; i++) {
             let currentRegex = new RegExp(regexes[i], 'g');
             let matches = currentRegex.exec(path);
