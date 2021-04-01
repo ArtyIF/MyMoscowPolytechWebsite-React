@@ -37,7 +37,7 @@ router.get('/years', function(req, res) {
     let yearIDs = getDirectories(path.join(__dirname, '..', 'public', 'labfiles'));
     let yearIDsWithHumanNames = {ids: yearIDs, humanNames: []};
     yearIDs.forEach(year => {
-        yearIDsWithHumanNames.humanNames.push(getHumanName(year));
+        yearIDsWithHumanNames.humanNames.push(getHumanName('/labs/y_' + year));
     });
     res.json(yearIDsWithHumanNames);
 });
@@ -50,7 +50,7 @@ router.get('/disciplines', function(req, res) {
     let disciplineIDs = getDirectories(path.join(__dirname, '..', 'public', 'labfiles', req.query.year));
     let disciplineIDsWithHumanNames = {ids: disciplineIDs, humanNames: []};
     disciplineIDs.forEach(discipline => {
-        disciplineIDsWithHumanNames.humanNames.push(getHumanName(req.query.year, discipline));
+        disciplineIDsWithHumanNames.humanNames.push(getHumanName('/labs/y_' + req.query.year + '/d_' + discipline));
     });
     res.json(disciplineIDsWithHumanNames);
 });
@@ -80,7 +80,7 @@ router.get('/labs', function(req, res) {
     labIDs.sort(naturalCompare);
     let labIDsWithHumanNames = {ids: labIDs, humanNames: []};
     labIDs.forEach(lab => {
-        labIDsWithHumanNames.humanNames.push(getHumanName(req.query.year, req.query.discipline, lab));
+        labIDsWithHumanNames.humanNames.push(getHumanName('/labs/y_' + req.query.year + '/d_' + req.query.discipline + '/l_' + lab));
     });
     res.json(labIDsWithHumanNames);
 });
