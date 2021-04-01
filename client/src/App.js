@@ -41,11 +41,11 @@ class App extends Component {
                             <Switch location={location} ref={this.switchRef}>
                                 <Route exact path='/' component={YearsView}/>
                                 <Route exact path='/labs' component={YearsView}/>
-                                <Route exact path='/labs/:year' component={DisciplinesView}/>
-                                <Route exact path='/labs/:year/:discipline' component={LabsView}/>
-                                <Route exact path='/labs/:year/:discipline/:lab' component={LabPageView}/>
-                                <Route exact path='/labs/:year/:discipline/:lab/:page' component={LabPageView} noBreadcrumb/>
-                                <Route exact path='/labs/:year/:discipline/:lab/:page/code' component={LabCodeView} noBreadcrumb/>
+                                <Route exact path='/labs/y_:year' component={DisciplinesView}/>
+                                <Route exact path='/labs/y_:year/d_:discipline' component={LabsView}/>
+                                <Route exact path='/labs/y_:year/d_:discipline/l_:lab' component={LabPageView}/>
+                                <Route exact path='/labs/y_:year/d_:discipline/l_:lab/p_:page' component={LabPageView} noBreadcrumb/>
+                                <Route exact path='/labs/y_:year/d_:discipline/l_:lab/p_:page/code' component={LabCodeView} noBreadcrumb/>
                             </Switch>
                         </CSSTransition>
                     </TransitionGroup>

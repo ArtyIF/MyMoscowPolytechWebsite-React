@@ -4,12 +4,10 @@ import LabsList from './LabsList';
 
 function LabsView() {
     let { year, discipline } = useRouteMatch().params;
-    let yearID = year.substring(2);
-    let disciplineID = discipline.substring(2);
     return (
         <div className='height-100'>
             <h2>Выберите работу</h2>
-            <LabsList apiURL={'/api/labs?year=' + yearID + '&discipline=' + disciplineID} pageURLPrefix={'/labs/' + year + '/' + discipline + '/l_'} humanNameURLPrefix={'/api/humanname?year=' + yearID + '&discipline=' + disciplineID + '&lab='} />
+            <LabsList apiURL={'/api/labs?year=' + year + '&discipline=' + discipline} pageURLPrefix={'/labs/y_' + year + '/d_' + discipline + '/l_'} humanNameURLPrefix={'/api/humanname?year=' + year + '&discipline=' + discipline + '&lab='} />
         </div>
     );
 }

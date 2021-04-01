@@ -15,18 +15,14 @@ class LabPageView extends Component {
 
     componentDidMount() {
         let { year, discipline, lab, page } = this.props.match.params;
-        
-        let yearID = year.substring(2);
-        let disciplineID = discipline.substring(2);
-        let labID = lab.substring(2);
-        let pageID = page ? page.substring(2) : null;
-        fetch('/api/lab?year=' + yearID + '&discipline=' + disciplineID + '&lab=' + labID).then((pageList) => pageList.json())
+
+        fetch('/api/lab?year=' + year + '&discipline=' + discipline + '&lab=' + lab).then((pageList) => pageList.json())
             .then((pageList) => {
                 this.setState({availablePages: pageList});
-                if (pageID === null) {
-                    pageID = this.state.availablePages[0];
+                if (!page) {
+                    page = this.state.availablePages[0];
                 }
-                fetch('/api/page?year=' + yearID + '&discipline=' + disciplineID + '&lab=' + labID + '&page=' + pageID).then((page) => page.text())
+                fetch('/api/page?year=' + year + '&discipline=' + discipline + '&lab=' + lab + '&page=' + page).then((page) => page.text())
                     .then((page) => {
                         this.setState({sentPage: page});
                         this.setState({loaded: true});
@@ -43,21 +39,22 @@ class LabPageView extends Component {
 
     render() {
         let { year, discipline, lab, page } = this.props.match.params;
-
-        let pageID = page ? page.substring(2) : this.state.availablePages[0];
+        if (!page) {
+            page = this.state.availablePages[0];
+        }
 
         return (
             <div className='lab-view-main height-100'>
                 <div className='lab-navbar'>
                     <span>Страницы: </span>
                     {this.state.availablePages.map((value) => {
-                        if (pageID !== value) {
-                            return (<CardLink to={'/labs/' + year + '/' + discipline + '/' + lab + '/p_' + value}>{value}</CardLink>);
+                        if (page !== value) {
+                            return (<CardLink to={'/labs/y_' + year + '/d_' + discipline + '/l_' + lab + '/p_' + value}>{value}</CardLink>);
                         } else {
                             return (<b>{value}</b>);
                         }
                     })}
-                    <Link to={'/labs/' + year + '/' + discipline + '/' + lab + '/p_' + pageID + '/code'} className='code-button'>Код</Link>
+                    <Link to={'/labs/y_' + year + '/d_' + discipline + '/l_' + lab + '/p_' + page + '/code'} className='code-button'>Код</Link>
                 </div>
                 <iframe srcDoc={this.state.sentPage} />
             </div>
