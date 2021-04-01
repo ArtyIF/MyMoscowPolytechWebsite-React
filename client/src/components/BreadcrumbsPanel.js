@@ -1,4 +1,3 @@
-/* eslint-disable no-unreachable */
 import React, { Component } from 'react';
 import { withRouter, matchPath } from 'react-router';
 import CardLink from './CardLink';
@@ -14,7 +13,6 @@ class BreadcrumbsPanel extends Component {
     }
     
     render() {
-        console.log(this.props.routesList);
         if (this.props.routesList.length > 0) {
             let splitPathname = this.props.location.pathname.split('/');
             let newSplitPathname = [];
