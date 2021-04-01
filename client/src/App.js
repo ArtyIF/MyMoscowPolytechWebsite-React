@@ -46,6 +46,7 @@ class App extends Component {
                                 <Route exact path='/labs/y_:year/d_:discipline/l_:lab' component={LabPageView}/>
                                 <Route exact path='/labs/y_:year/d_:discipline/l_:lab/p_:page' component={LabPageView} noBreadcrumb/>
                                 <Route exact path='/labs/y_:year/d_:discipline/l_:lab/p_:page/code' component={LabCodeView} noBreadcrumb/>
+                                <Route component={Error404} />
                             </Switch>
                         </CSSTransition>
                     </TransitionGroup>
@@ -53,6 +54,10 @@ class App extends Component {
             </div>
         );
     }
+}
+
+function Error404() {
+    return (<div>Страница не найдена!</div>);
 }
 
 export default connect(null, mapDispatchToProps)(withRouter(App));
