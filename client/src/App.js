@@ -9,6 +9,7 @@ import LabPageView from './components/LabPageView';
 import LabCodeView from './components/LabCodeView';
 import { refreshRoutesList } from './actions/index';
 import { connect } from 'react-redux';
+import HomePageView from './components/HomePageView';
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -39,7 +40,7 @@ class App extends Component {
                     <TransitionGroup className='height-100'>
                         <CSSTransition key={location.key} classNames='page-transition' timeout={200}>
                             <Switch location={location} ref={this.switchRef}>
-                                <Route exact path='/' component={YearsView}/>
+                                <Route exact path='/' component={HomePageView}/>
                                 <Route exact path='/labs' component={YearsView}/>
                                 <Route exact path='/labs/y_:year' component={DisciplinesView}/>
                                 <Route exact path='/labs/y_:year/d_:discipline' component={LabsView}/>

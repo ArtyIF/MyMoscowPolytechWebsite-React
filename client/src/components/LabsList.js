@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CardLink from './CardLink';
+import FlexList from './FlexList';
 
 class LabsList extends Component {
     constructor() {
@@ -36,7 +37,7 @@ class LabsList extends Component {
         } else {
             return (<div />);
         }
-        return (<div className='labs-list'>{res}</div>);
+        return (<FlexList>{res}</FlexList>);
     }
 }
 
