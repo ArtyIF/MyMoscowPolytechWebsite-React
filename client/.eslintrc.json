@@ -37,5 +37,10 @@
         "react/prop-types": [
             0 // more trouble than it's worth
         ]
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
     }
 }

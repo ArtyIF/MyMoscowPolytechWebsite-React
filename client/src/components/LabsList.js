@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import CardLink from './CardLink';
+import FlexList from './FlexList';
 
 class LabsList extends Component {
     constructor() {
@@ -28,9 +29,7 @@ class LabsList extends Component {
         if (this.state.loaded) {
             if (!this.state.error) {
                 res = this.state.response.ids.map((value, i) => (
-                    <div className='link' key={value + '_' + i}>
-                        <Link to={this.props.pageURLPrefix + value}>{this.state.response.humanNames[i]}</Link>
-                    </div>
+                    <CardLink key={value + '_' + i} to={this.props.pageURLPrefix + value}>{this.state.response.humanNames[i]}</CardLink>
                 ));
             } else {
                 res = (<p>Ошибка загрузки: {this.state.error}</p>);
@@ -38,7 +37,7 @@ class LabsList extends Component {
         } else {
             return (<div />);
         }
-        return (<div className='stuff-list'>{res}</div>);
+        return (<div className='extra-bottom-padding'><FlexList>{res}</FlexList></div>);
     }
 }
 

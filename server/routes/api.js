@@ -5,39 +5,39 @@ var fs = require('fs');
 
 const getDirectories = source => fs.readdirSync(source, { withFileTypes: true }).filter(dirent => dirent.isDirectory()).map(dirent => dirent.name);
 const getFiles = source => fs.readdirSync(source, { withFileTypes: true }).filter(dirent => dirent.isFile()).map(dirent => dirent.name);
+const humanNames = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'public', 'humannames.json'), 'utf8'));
 
-function getHumanName(year, discipline, lab) {
-    let humanName;
-    if (year && discipline && lab) {
-        humanName = 'Лабораторная работа ' + lab;
-        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labfiles', year, discipline, lab, 'humanname'))) {
-            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labfiles', year, discipline, lab, 'humanname'), 'utf8');
-        }
-    } else if (year && discipline) {
-        humanName = 'Нет humanname! (ID: ' + discipline + ')';
-        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labfiles', year, discipline, 'humanname'))) {
-            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labfiles', year, discipline, 'humanname'), 'utf8');
-        }
-    } else if (year) {
-        humanName = year + '-й курс';
-        if (fs.existsSync(path.join(__dirname, '..', 'public', 'labfiles', year, 'humanname'))) {
-            humanName = fs.readFileSync(path.join(__dirname, '..', 'public', 'labfiles', year, 'humanname'), 'utf8');
-        }
+function getHumanName(path) {
+    if (typeof humanNames.custom[path] !== 'undefined') {
+        return humanNames.custom[path];
     } else {
-        return 'Неверный запрос';
+        let finalValue = humanNames.default;
+        let regexes = Object.keys(humanNames.templates);
+        let values = Object.values(humanNames.templates);
+        for (let i = 0; i < regexes.length; i++) {
+            let currentRegex = new RegExp(regexes[i], 'g');
+            let matches = currentRegex.exec(path);
+            if (matches) {
+                finalValue = values[i];
+                for (let j = 0; j < matches.length; j++) {
+                    finalValue = finalValue.replace('$' + j, matches[j]).replace('&dol;', '$').replace('&amp;', '&');
+                }
+                break;
+            }
+        }
+        return finalValue;
     }
-    return humanName;
 }
 
 router.get('/humanname', function (req, res) {
-    res.send(getHumanName(req.query.year, req.query.discipline, req.query.lab));
+    res.send(getHumanName(req.query.path));
 });
 
 router.get('/years', function(req, res) {
     let yearIDs = getDirectories(path.join(__dirname, '..', 'public', 'labfiles'));
     let yearIDsWithHumanNames = {ids: yearIDs, humanNames: []};
     yearIDs.forEach(year => {
-        yearIDsWithHumanNames.humanNames.push(getHumanName(year));
+        yearIDsWithHumanNames.humanNames.push(getHumanName('/labs/y_' + year));
     });
     res.json(yearIDsWithHumanNames);
 });
@@ -50,7 +50,7 @@ router.get('/disciplines', function(req, res) {
     let disciplineIDs = getDirectories(path.join(__dirname, '..', 'public', 'labfiles', req.query.year));
     let disciplineIDsWithHumanNames = {ids: disciplineIDs, humanNames: []};
     disciplineIDs.forEach(discipline => {
-        disciplineIDsWithHumanNames.humanNames.push(getHumanName(req.query.year, discipline));
+        disciplineIDsWithHumanNames.humanNames.push(getHumanName('/labs/y_' + req.query.year + '/d_' + discipline));
     });
     res.json(disciplineIDsWithHumanNames);
 });
@@ -80,7 +80,7 @@ router.get('/labs', function(req, res) {
     labIDs.sort(naturalCompare);
     let labIDsWithHumanNames = {ids: labIDs, humanNames: []};
     labIDs.forEach(lab => {
-        labIDsWithHumanNames.humanNames.push(getHumanName(req.query.year, req.query.discipline, lab));
+        labIDsWithHumanNames.humanNames.push(getHumanName('/labs/y_' + req.query.year + '/d_' + req.query.discipline + '/l_' + lab));
     });
     res.json(labIDsWithHumanNames);
 });
