@@ -161,19 +161,9 @@ iframe {
 }
 
 .lab-navbar {
-    display: flex;
-    height: fit-content;
-    padding: 6px 8px;
+    padding: 4px 8px;
     background-color: $breadcrumbs-color;
     color: font-color-contrast($breadcrumbs-color);
-
-    & .code-button {
-        margin-top: -2px;
-    }
-
-    & b {
-        margin-right: 4px;
-    }
 }
 
 .breadcrumbs-panel {
@@ -201,4 +191,8 @@ iframe {
 
 .extra-bottom-padding {
     padding-bottom: 4px;
+}
+
+.flex-separator {
+    flex-grow: 1;
 }

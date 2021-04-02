@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import CardLink from './CardLink';
+import FlexList from './FlexList';
 
 class LabPageView extends Component {
     constructor() {
@@ -46,15 +47,13 @@ class LabPageView extends Component {
         return (
             <div className='lab-view-main height-100'>
                 <div className='lab-navbar'>
-                    <span>Страницы: </span>
-                    {this.state.availablePages.map((value) => {
-                        if (page !== value) {
-                            return (<CardLink to={'/labs/y_' + year + '/d_' + discipline + '/l_' + lab + '/p_' + value}>{value}</CardLink>);
-                        } else {
-                            return (<b>{value}</b>);
-                        }
-                    })}
-                    <Link to={'/labs/y_' + year + '/d_' + discipline + '/l_' + lab + '/p_' + page + '/code'} className='code-button'>Код</Link>
+                    <FlexList>
+                        {this.state.availablePages.map((value) => {
+                            return (<CardLink to={'/labs/y_' + year + '/d_' + discipline + '/l_' + lab + '/p_' + value} key={'page_' + value} active={page === value}>{value}</CardLink>);
+                        })}
+                        <div className='flex-separator'/>
+                        <CardLink to={'/labs/y_' + year + '/d_' + discipline + '/l_' + lab + '/p_' + page + '/code'}>Код</CardLink>
+                    </FlexList>
                 </div>
                 <iframe srcDoc={this.state.sentPage} />
             </div>
