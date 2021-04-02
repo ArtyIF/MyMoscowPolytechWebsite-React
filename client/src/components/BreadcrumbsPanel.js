@@ -36,7 +36,6 @@ class BreadcrumbsPanel extends Component {
                     }
                 }
             }
-            console.log(newSplitPathname);
             splitPathname = newSplitPathname;
 
             return (<div className='breadcrumbs-panel'>
