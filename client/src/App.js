@@ -24,7 +24,16 @@ class App extends Component {
     }
 
     componentDidMount() {
-        this.props.refreshRoutesList(this.switchRef.current.props.children);
+        let newRoutesList = [];
+        let children = this.switchRef.current.props.children;
+        for (let i = 0; i < children.length; i++) {
+            newRoutesList.push({
+                path: children[i].props.path,
+                exact: children[i].props.exact,
+                noBreadcrumb: children[i].props.noBreadcrumb
+            });
+        }
+        this.props.refreshRoutesList(newRoutesList);
     }
 
     render() {

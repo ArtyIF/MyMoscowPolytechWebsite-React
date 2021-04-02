@@ -29,8 +29,8 @@ class BreadcrumbsPanel extends Component {
             for (let i = 0; i < splitPathname.length; i++) {
                 let crumbPathname = '/' + splitPathname.slice(0, i + 1).join('/');
                 for (let j = 0; j < this.props.routesList.length; j++) {
-                    let matchedPath = matchPath(crumbPathname, { path: this.props.routesList[j].props.path, exact: this.props.routesList[j].props.exact });
-                    if (matchedPath && matchedPath.path !== '*' && !this.props.routesList[j].props.noBreadcrumb) {
+                    let matchedPath = matchPath(crumbPathname, { path: this.props.routesList[j].path, exact: this.props.routesList[j].exact });
+                    if (matchedPath && matchedPath.path !== '*' && !this.props.routesList[j].noBreadcrumb) {
                         newSplitPathname.push(splitPathname[i]);
                         break;
                     }
