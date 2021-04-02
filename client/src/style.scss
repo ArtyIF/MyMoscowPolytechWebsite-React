@@ -87,7 +87,6 @@ main {
     flex-wrap: wrap;
     gap: 4px;
     align-content: space-between;
-    padding-bottom: 4px;
 }
 
 .link {
@@ -178,8 +177,6 @@ iframe {
 }
 
 .breadcrumbs-panel {
-    display: flex;
-    gap: 4px;
     background-color: mix($header-color, $breadcrumbs-color);
     color: font-color-contrast(mix($header-color, $breadcrumbs-color));
     padding: 4px 8px;
@@ -200,4 +197,8 @@ iframe {
     left: 0;
     z-index: 1000;
     display: none;
+}
+
+.extra-bottom-padding {
+    padding-bottom: 4px;
 }

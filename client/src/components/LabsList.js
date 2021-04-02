@@ -37,7 +37,7 @@ class LabsList extends Component {
         } else {
             return (<div />);
         }
-        return (<FlexList>{res}</FlexList>);
+        return (<div className='extra-bottom-padding'><FlexList>{res}</FlexList></div>);
     }
 }
 
