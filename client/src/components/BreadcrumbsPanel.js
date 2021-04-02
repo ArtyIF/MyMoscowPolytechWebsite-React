@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter, matchPath } from 'react-router';
 import CardLink from './CardLink';
 import { connect } from 'react-redux';
+import HumanName from './HumanName';
 
 const mapStateToProps = state => {
     return { routesList: state.routesList };
@@ -41,9 +42,9 @@ class BreadcrumbsPanel extends Component {
                     splitPathname.map((value, i) => {
                         let crumbPathname = '/' + splitPathname.slice(0, i + 1).join('/');
                         if (splitPathname.length === i + 1) {
-                            return (<CardLink to={crumbPathname} key={'breadcrumb_' + value} active>{crumbPathname}</CardLink>);
+                            return (<CardLink to={crumbPathname} key={'breadcrumb_' + value} active><HumanName path={crumbPathname} /></CardLink>);
                         } else {
-                            return (<CardLink to={crumbPathname} key={'breadcrumb_' + value}>{crumbPathname}</CardLink>);
+                            return (<CardLink to={crumbPathname} key={'breadcrumb_' + value}><HumanName path={crumbPathname} /></CardLink>);
                         }
                     })
                 }
