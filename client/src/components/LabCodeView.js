@@ -57,10 +57,10 @@ class LabCodeView extends Component {
                 <div className='lab-navbar'>
                     <FlexList>
                         {this.state.availablePages.map((value) => {
-                            return (<CardLink to={'/labs/y_' + year + '/d_' + discipline + '/l_' + lab + '/p_' + value} key={'page_' + value} active={page === value}>{value}</CardLink>);
+                            return (<CardLink to={'/labs/y_' + year + '/d_' + discipline + '/l_' + lab + '/p_' + value + '/code'} key={'page_' + value} active={page === value}>{value}</CardLink>);
                         })}
                         <div className='flex-separator'/>
-                        <CardLink to={'/labs/y_' + year + '/d_' + discipline + '/l_' + lab + '/p_' + page + '/code'}>Страница</CardLink>
+                        <CardLink to={'/labs/y_' + year + '/d_' + discipline + '/l_' + lab + '/p_' + page}>Страница</CardLink>
                     </FlexList>
                 </div>
                 <SyntaxHighlighter language='handlebars' style={codeStyle} showLineNumbers className='code-block'>
