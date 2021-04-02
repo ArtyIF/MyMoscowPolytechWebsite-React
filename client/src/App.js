@@ -7,7 +7,7 @@ import DisciplinesView from './components/DisciplinesView';
 import LabsView from './components/LabsView';
 import LabPageView from './components/LabPageView';
 import LabCodeView from './components/LabCodeView';
-import { refreshRoutesList } from './actions/index';
+import { refreshRoutesList } from './store/index';
 import { connect } from 'react-redux';
 import HomePageView from './components/HomePageView';
 

@@ -6,7 +6,7 @@ import HumanName from './HumanName';
 import FlexList from './FlexList';
 
 const mapStateToProps = state => {
-    return { routesList: state.routesList };
+    return { routesList: state.root.routesList };
 };
 
 class BreadcrumbsPanel extends Component {
