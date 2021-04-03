@@ -1,12 +1,12 @@
 #! /bin/bash
-echo '1/4 Обновление пакетов у клиента'
+echo '1/4 Установка пакетов у клиента'
 cd client
-npm update
+npm install
 cd ..
 
-echo '2/4 Обновление пакетов у сервера'
+echo '2/4 Установка пакетов у сервера'
 cd server
-npm update
+npm install
 cd ..
 
 echo '3/4 Сборка клиента'
