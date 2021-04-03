@@ -40,7 +40,7 @@ class BreadcrumbsPanel extends Component {
 
             return (<div className='breadcrumbs-panel'>
                 <FlexList>
-                    <CardLink to='/' key={'breadcrumb_/'} active={splitPathname.length === 0}>Домашняя страница</CardLink>
+                    <CardLink to='/' key={'breadcrumb_/'} active={splitPathname.length === 0}><HumanName path='/' /></CardLink>
                     {
                         splitPathname.map((value, i) => {
                             let crumbPathname = '/' + splitPathname.slice(0, i + 1).join('/');
