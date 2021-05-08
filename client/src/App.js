@@ -7,9 +7,13 @@ import DisciplinesView from './components/DisciplinesView';
 import LabsView from './components/LabsView';
 import LabPageView from './components/LabPageView';
 import LabCodeView from './components/LabCodeView';
+import LoggerFormView from './components/LoggerFormView';
+import LoggerFormSentView from './components/LoggerFormSentView';
 import { refreshRoutesList } from './store/index';
 import { connect } from 'react-redux';
 import HomePageView from './components/HomePageView';
+import FlexList from './components/FlexList';
+import CardLink from './components/CardLink';
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -50,6 +54,8 @@ class App extends Component {
                         <CSSTransition key={location.key} classNames='page-transition' timeout={200}>
                             <Switch location={location} ref={this.switchRef}>
                                 <Route exact path='/' component={HomePageView}/>
+                                <Route exact path='/logger' component={LoggerFormView}/>
+                                <Route exact path='/logger/sent' component={LoggerFormSentView} noBreadcrumb/>
                                 <Route exact path='/labs' component={YearsView}/>
                                 <Route exact path='/labs/y_:year' component={DisciplinesView}/>
                                 <Route exact path='/labs/y_:year/d_:discipline' component={LabsView}/>
@@ -67,7 +73,7 @@ class App extends Component {
 }
 
 function Error404() {
-    return (<div>Страница не найдена!</div>);
+    return (<div><h2>Ошибка 404</h2><FlexList><CardLink to='/'>Вернуться на главную страницу</CardLink></FlexList></div>);
 }
 
 export default connect(null, mapDispatchToProps)(withRouter(App));

@@ -119,4 +119,14 @@ router.get('/page', function(req, res) {
     }
 });
 
+router.get('/log', function(req, res) {
+    fs.access(path.join(__dirname, '..', 'logger.log'), (err) => {
+        if (err) {
+            res.status(404).send('За эти сутки никто ещё пока ничего не отправлял');
+        } else {
+            res.sendFile(path.join(__dirname, '..', 'logger.log'));
+        }
+    });
+});
+
 module.exports = router;
