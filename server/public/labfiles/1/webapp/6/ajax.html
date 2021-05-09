@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        var main = function() {
+            "use strict";
+            $(".text-input button").on("click", function(event) {
+                console.log("Нажата кнопка «=»");
+                var $newInput = $("<p>").text($(".text-input input").val());
+                $(".text-input").append($newInput);
+            });
+            $.ajax({
+                dataType: "json",
+                url: "/static/webapp/lr6/adr.json",
+                success: function(adr) {
+                    //Выводим данные в консоль
+                    console.log(adr);
+                }
+            });
+        };
+        $(document).ready(main);
+    </script>
+</head>
+<body>
+    <h1>Интерактивность веб приложений</h1>
+    <p>Введите текст</p>
+    <div class="text-input">
+        <p><input type="text"><button>=</button></p>
+    </div>
+    <p>Простой пример, когда пользователь нажимает кнопку «=» в DOM добавляется новый элемент с текстом содержимого ввода. Откройте консоль в браузере для просмотра сообщений.</p>
+</body>
+</html>
